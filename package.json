@@ -1,0 +1,37 @@
+{
+  "name": "fishyapp",
+  "version": "1.0.0",
+  "description": "A social platform for your fishing needs.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server:debug": "nodemon --inspect app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelyuen89/fishyapp.git"
+  },
+  "keywords": [
+    "fish"
+  ],
+  "author": "Michael Yuen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelyuen89/fishyapp/issues"
+  },
+  "homepage": "https://github.com/michaelyuen89/fishyapp#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.9",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
