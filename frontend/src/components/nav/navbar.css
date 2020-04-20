@@ -1,0 +1,68 @@
+.navbar-container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    padding-left: 50px;
+}
+
+.nav-links-left {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgb(14, 83, 83);
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    font-size: 18px;
+}
+
+.nav-links-left > div {
+    padding-right: 25px;
+}
+
+.nav-links-left a:hover {
+    text-decoration: underline;
+}
+
+.nav-links-right a {
+    padding: 10px;
+    color: rgb(14, 83, 83);
+    font-size: 18px;
+    transition: 0.3s ease all;
+}
+
+.nav-links-right a:hover {
+    background-color: rgb(189, 214, 214);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.nav-links-right button {
+    padding: 10px;
+    color: rgb(14, 83, 83);
+    font-size: 18px;
+    transition: 0.3s ease all;
+}
+
+.fa-fish {
+    color: rgb(57, 136, 136);
+    padding-right: 10px;
+    font-size: 36px;
+}

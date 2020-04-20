@@ -17,18 +17,32 @@ class NavBar extends React.Component {
     getLinks() {
         if (this.props.loggedIn) {
             return (
-                <div>
-                    <Link to={'/fishes'}>All fish</Link>
-                    <Link to={'/profile'}>Profile</Link>
-                    <Link to={'/new_fish'}>Add a fish</Link>
-                    <button onClick={this.logoutUser}>Logout</button>
+                <div className="nav-links logged-in">
+                    <div className="nav-links-left">
+                        <div>
+                            <Link to={'/fishes'}>All fish</Link>
+                        </div>
+                        <div>
+                            <Link to={'/profile'}>Profile</Link>
+                        </div>
+                        <div>
+                            <Link to={'/new_fish'}>Add a fish</Link>
+                        </div>
+                    </div>
+                    <div className="nav-links-right">
+                        <a onClick={this.logoutUser}>Logout</a>
+                    </div>
                 </div>
             );
         } else {
             return (
-                <div>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
+                <div className="nav-links logged-out">
+                    <div className="nav-links-left">
+                    </div>
+                    <div className="nav-links-right">
+                        <Link to={'/signup'}>Sign up</Link>
+                        <Link to={'/login'}>Log in</Link>
+                    </div>
                 </div>
             );
         }
@@ -36,10 +50,15 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>FishyDex</h1>
-                {this.getLinks()}
+          <div className="navbar-container">
+            <div className="navbar-logo">
+              <i className="fas fa-fish"></i>
+              <Link to={"/"}>
+                <span>FishyDex</span>
+              </Link>
             </div>
+            {this.getLinks()}
+          </div>
         );
     }
 }
