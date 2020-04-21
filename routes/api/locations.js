@@ -83,24 +83,5 @@ router.put('/:id',
     }
 );
 
-        // Location.findById(req.params.id)
-        //     .then(location => {
-        //         debugger
-        //         for (let key in req.body) {
-        //             if (!location[key]) {
-        //                 return res.status(404).json({ invalidfield: 'Invalid field being updated! '})
-        //             }
-        //             else if (!errors[key]) {
-        //                 return res.status(404).json(errors[key]);
-        //             } else {
-        //                 location[key] = req.body[key];
-        //             }
-        //         }
-        //         debugger
-        //         location.save().then(location => res.json(location));
-        //     })
-        //     .catch(err =>
-        //         res.status(404).json({ nolocationfound: 'No location found with that ID' }))
-
 module.exports = router;
 
