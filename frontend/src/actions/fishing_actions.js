@@ -54,7 +54,7 @@ export const fetchLocation = (id) => dispatch => (
 
 export const createLocation = (location) => dispatch => (
     APIUtil.createLocation(location)
-        .then(location => dispatch(addLocation(Location))
+        .then(location => dispatch(addLocation(location))
         ), err => (dispatch(receiveErrors(err.response.data))
     )
 );

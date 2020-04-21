@@ -22,12 +22,15 @@ const LocationsReducer = (state = initialState, action) => {
             newState.allLocations[action.location.id] = action.location.data;
             newState.currentLocation = action.location;
             return newState;
-        case ADD_FISHING_LOCATION:
+        case ADD_LOCATION:
             newState.allLocations[action.location.id] = action.location.data;
             newState.currentLocation = action.location;
             return newState;
         case UPDATE_LOCATION:
             newState.allLocations[action.location.id] = action.location.data
+
+        case REMOVE_LOCATION:
+            
     }
 }
 

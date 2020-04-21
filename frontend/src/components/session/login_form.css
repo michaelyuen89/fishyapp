@@ -12,12 +12,19 @@
   background-color: rgba(0,0,0,0.4);
 }
 
+.login-form-container {
+  width: 60%;
+}
+
 .login-form-modal{
   background-color: #fefefe;
   margin: 25% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+    /* width: 80%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .submit-btn, .login-input{
