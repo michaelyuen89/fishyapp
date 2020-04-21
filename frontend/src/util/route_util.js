@@ -7,7 +7,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
         !loggedIn ? (
             <Component {...props} />
         ) : (
-            <Redirect to="/home" />
+            <Redirect to="/" />
         )
     )} />
 );
@@ -26,7 +26,7 @@ const Protected = ({ component: Component, loggedIn, ...rest}) => (
 );
 
 const msp = state => ({
-    loggedIn: state.session.isAuthenticared
+    loggedIn: state.session.isAuthenticated
 });
 
 export const AuthRoute = withRouter(connect(msp)(Auth));

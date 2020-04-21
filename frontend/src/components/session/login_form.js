@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import './login_form.css';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -40,6 +41,13 @@ class LoginForm extends React.Component {
         this.props.login(user);
     }
 
+    close_modal(){
+        var modal = document.getElementById("login-modal");
+        modal.style.display = "none";
+    }
+
+
+
     renderErrors() {
         return (
             <ul>
@@ -54,27 +62,32 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="text"
-                        value={this.state.email}
-                        onChange={this.update('email')}
-                        placeholders="Email"
-                        />
-                        <br/>
-                        <input type="password"
-                        value={this.state.password}
-                        onChange={this.update('password')}
-                        placeholder="Password"
-                        />
-                        <br/>
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}
-                    </div>
-                </form>
-            </div>
-        )
+          <div className="login-form-container-modal" id="login-modal">
+            <form onSubmit={this.handleSubmit}>
+              <div className="login-form-modal">
+                <input onClick={this.close_modal} className="close-modal" type="button" value="x" />
+                <input
+                  className="login-input"
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  placeholder="Email"
+                />
+                <br />
+                <input
+                  className="login-input"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  placeholder="Password"
+                />
+                <br />
+                <input className="submit-btn" type="submit" value="Submit" />
+                {this.renderErrors()}
+              </div>
+            </form>
+          </div>
+        );
     }
 }
 

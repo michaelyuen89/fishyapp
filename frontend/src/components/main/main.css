@@ -1,0 +1,87 @@
+.main-page-container {
+    /* max-width: 1320px; */
+    /* margin:auto; */
+    width: 100%;
+    height:700px;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-page-container > img {
+    /* max-width: 100%;
+    max-height: 100%; */
+    /* height: 300px; */
+    /* max-width: 1320px; */
+    /* width: 100%; */
+    object-fit: cover;
+    position: absolute;
+    margin-left: auto;
+    /* margin-right: auto; */
+    left: 0;
+    right: 0;
+     /* max-width: 980px;
+    margin: 0 auto;
+    background-size: auto 100%;
+    -webkit-background-size:cover;
+    overflow:hidden;
+    align-self:center;
+    object-fit: cover; */
+}
+
+.main-page-container > div {
+    position: absolute;
+    z-index: 2;
+    top: 200px;
+    left: 20vw;
+}
+
+h1.splash-hook {
+    font-size: 72px;
+    font-weight: 600;
+}
+
+
+div.splash-slogan {
+    line-height: 1.5;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+footer {
+    padding: 20px 0;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links > div {
+    margin-bottom: 5px;
+}
+
+.footer-copyright {
+    color: gray;
+}
+
+footer a {
+    color: rgb(14, 83, 83);
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer ul {
+    display: flex;
+}
+
+footer li {
+    padding-left: 12px;
+}

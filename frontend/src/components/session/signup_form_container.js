@@ -5,7 +5,13 @@ import SignupForm from './signup_form';
 const mapStateToProps = (state) => {
     return {
         signedIn: state.session.isSignedIn,
-        errors: state.errors.session
+        errors: state.errors.session,
+        formType: "Sign Up",
+        demoUser: {
+            username: "MasterFisher2000",
+            email: "MasterFisher@gmail.com",
+            password: "password"
+        }
     };
 };
 
