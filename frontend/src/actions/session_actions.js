@@ -39,7 +39,7 @@ export const login = user => dispatch => (
         locatStorage.setItem('jwtToken', token);
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
-        dispatch(receiveCurrentUser(decode))
+        dispatch(receiveCurrentUser(decoded))
     })
     .catch(err => {
         dispatch(receiveErrors(err.response.data));
