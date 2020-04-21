@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
 });
 
 // show - pulling a specific location
-router.get('/location/:location_id', (req, res) => {
-    Location.find({location: req.params.location_id})
+router.get('/:id', (req, res) => {
+    Location.findById(req.params.id)
         .then(location => res.json(location))
         .catch(err =>
             res.status(404).json({ nolocationfound: 'No location found with that ID'}))
@@ -43,6 +43,64 @@ router.post('/',
         newLocation.save().then(location => res.json(location));
     }
 );
+
+
+// delete location via protected route
+router.delete('/:id',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        Location.deleteOne({_id: req.params.id})
+            .then(() => res.status(200).json({successfuldelete: "Deleted successfully!"}))
+            .catch(err => res.status(404).json({ nolocationfound: 'No location found with that ID' }))
+    }
+);
+
+// update location via protected route
+router.put('/:id',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        const { errors, isValid } = validateLocationInput(req.body);
+
+        Location.findOne({ _id: req.params.id }).then(location => {
+            // debugger
+            for (let key in req.body) {
+                // debugger
+                if (!location[key]) {
+                    return res.status(404).json({ invalidfield: 'Invalid field being updated! '})
+                }
+                else if (req.body[key] && errors[key]) {
+                    // debugger
+                    return res.status(404).json(errors[key]);
+                } else if (req.body[key]) {
+                    location[key] = req.body[key];
+                }
+            }
+            // debugger
+            location.save().then(location => res.json(location));
+
+        })
+        .catch(err => res.status(404).json({ nolocationfound: 'No location found with that ID' }));
+    }
+);
+
+        // Location.findById(req.params.id)
+        //     .then(location => {
+        //         debugger
+        //         for (let key in req.body) {
+        //             if (!location[key]) {
+        //                 return res.status(404).json({ invalidfield: 'Invalid field being updated! '})
+        //             }
+        //             else if (!errors[key]) {
+        //                 return res.status(404).json(errors[key]);
+        //             } else {
+        //                 location[key] = req.body[key];
+        //             }
+        //         }
+        //         debugger
+        //         location.save().then(location => res.json(location));
+        //     })
+        //     .catch(err =>
+        //         res.status(404).json({ nolocationfound: 'No location found with that ID' }))
 
 module.exports = router;
 

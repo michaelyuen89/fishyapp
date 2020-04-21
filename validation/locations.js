@@ -6,6 +6,9 @@ module.exports = function validateLocationInput(data) {
 
     data.name = validText(data.name) ? data.name : "";
     data.description = validText(data.description) ? data.description : "";
+    data.lng = validText(data.lng) ? data.lng : "";
+    data.lat = validText(data.lat) ? data.lat : "";
+
 
     if (!Validator.isLength(data.name, { min: 1, max: 200})) {
         errors.name = 'Location name must be between 1 and 200 characters';
