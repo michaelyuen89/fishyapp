@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import './signup_form.css';
-import fish from './bluefish.png';
+// import fish from './bluefish.png';
 import signupImage from './signup_background.png';
 
 class SignupForm extends React.Component {
@@ -67,7 +67,7 @@ class SignupForm extends React.Component {
     render() {
         return (
           <div className="outer-container">
-            <img src={signupImage} id="signup-background-img" />
+            <img src={signupImage} id="signup-background-img" alt="signup" />
             <div className="signup-form-container">
               <form onSubmit={this.handleSubmit}>
                 <div className="signup-form">

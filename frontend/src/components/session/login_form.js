@@ -64,7 +64,7 @@ class LoginForm extends React.Component {
     render() {
         return (
           <div className="outer-container" id="login-modal">
-            <img src={signupImage} id="signup-background-img" />
+            <img src={signupImage} id="signup-background-img" alt="login"/>
             <div className="login-form-container">
               <form onSubmit={this.handleSubmit}>
                 <div className="login-form">
