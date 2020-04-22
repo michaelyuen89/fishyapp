@@ -2,3 +2,4 @@
 /config/keys.js
 /config/keys_dev.js
 .env
+/.env
