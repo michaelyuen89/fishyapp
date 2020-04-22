@@ -2,6 +2,7 @@ import React from 'react';
 import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import { Route, Switch} from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
+import path from 'express';
 
 
 import MainPage from './main/main_page';
@@ -21,4 +22,12 @@ const App = () => (
 
 export default App;
 
+const path = require('path');
 
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    })
+}
