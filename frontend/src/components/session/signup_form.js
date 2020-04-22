@@ -73,13 +73,13 @@ class SignupForm extends React.Component {
                 <div className="signup-form">
                   <br />
                   <h2 id="signup-header">Welcome</h2>
-                  <br />
+                  {/* <br />
                   <input
                     type="password"
                     value={this.state.password}
                     onChange={this.update("password")}
                     placeholder="Password"
-                  />
+                  /> */}
                   <br />
                   {/* <div className="dashed">
                               <span>OR</span>
