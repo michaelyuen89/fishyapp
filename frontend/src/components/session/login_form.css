@@ -1,4 +1,4 @@
-.login-form-container-modal{
+/* .login-form-container-modal{
   display: flex;
   justify-content: center;
   position: fixed;
@@ -10,23 +10,28 @@
   overflow: auto;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
-}
+} */
 
-.login-form-modal{
+/* .login-form-container {
+  width: 60%;
+} */
+
+/* .login-form-modal{
   background-color: #fefefe;
   margin: 25% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+} */
 
-.submit-btn, .login-input{
+/* .submit-btn, .login-input{
     padding: 20px;
     border: 1px solid lightblue;
-    /* margin: 15% auto; */
-}
+} */
 
-.login-input{
+/* .login-input{
   margin: 3% auto;
 }
 
@@ -36,4 +41,108 @@
 
 .close-modal{
   border-radius: 420px;
+} */
+
+.outer-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.login-form-container {
+    margin: auto;
+}
+
+#signup-fish-logo {
+    margin: auto;
+    text-align: center;
+}
+
+#signup-header {
+    /* color: white; */
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    /* background-color: rgb(57, 136, 136); */
+    font-size: 40px;
+    margin: auto;
+    text-align: center;
+    height: 60px;
+    font-weight: bold;
+}
+
+.login-form-group {
+    max-height: 240px;
+    /* height: 100%; */
+}
+
+.login-form {
+    width: 400px;
+    padding-bottom: 88px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.login-form input{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    border: none;
+    height: 40px;
+    text-indent: 12px;
+    border-bottom: 1px solid rgb(57, 136, 136);
+    /* background-color: rgb(0, 159, 212); */
+}
+
+#submit-button input {
+    background-color: rgb(57, 136, 136);
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    height: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#submit-button input:hover {
+    background-color: rgb(48, 114, 114);
+    color: whitesmoke;
+}
+
+
+#switch-login-signup {
+    margin: auto;
+    text-align: center;
+}
+
+.signup-link {
+    font-weight: bold;
+    color: rgb(48, 114, 114);
+    /* font-size: 20px; */
+}
+
+.user-errors-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.user-errors {
+    color: red;
+    list-style-type: disc;
+}
+
+#signup-background-img {
+    object-fit: cover;
+    position: absolute;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+    z-index: -1;
 }
