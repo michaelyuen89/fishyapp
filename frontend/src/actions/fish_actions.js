@@ -33,7 +33,7 @@ export const removeFish = (fish) => ({
 
 export const fetchAllFishes = () => dispatch => (
     FishAPIUtil.fetchAllFishes()
-        .then(() => dispatch(receiveAllFish())
+        .then((fishes) => dispatch(receiveAllFish(fishes))
     )
 );
 

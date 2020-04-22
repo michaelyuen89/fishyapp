@@ -1,32 +1,31 @@
 import {
-    RECEIVE_ALL_FISHES,
+    RECEIVE_ALL_FISH,
     RECEIVE_FISH,
     ADD_FISH,
     UPDATE_FISH,
     REMOVE_FISH
-} from '../util/fish_api_util';
+} from '../actions/fish_actions';
 
-const initialState = Object.freeze({
-    allFishes: {},
-    currentLocation: {}
-});
+// const initialState = Object.freeze({
+//     allFishes: {},
+//     currentLocation: {}
+// });
 
-const FishReducer = (state = initialState, action) => {
+const FishReducer = (state = {}, action) => {
     Object.freeze(state);
-    let newState = Object.assign({}, initialState);
+    let newState = Object.assign({}, state);
     switch(action.type) {
-        case RECEIVE_ALL_FISHES:
-            newState.allFishes = action.fishes.data;
-            return newState;
+        case RECEIVE_ALL_FISH:
+            return Object.assign(newState, action.fishes.data)
         case RECEIVE_FISH:
             newState.allLocations[action.fish.id] = action.fish.data;
             return newState;
         case ADD_FISH:
             newState.allFishes[action.fish.id] = action.fish.data;
             return newState;
-        case UPDATE_FISH:
-            newState.allFishes[action.location.id] = action.fish.data;
-            return newState;
+        // case UPDATE_FISH:
+        //     newState.allFishes[action.location.id] = action.fish.data;
+        //     return newState;
         case REMOVE_FISH:
             newState = Object.assign({}, state);
             delete newState[action.fish.id];

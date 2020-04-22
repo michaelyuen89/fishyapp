@@ -6,6 +6,7 @@ import jwt_decode from 'jwt-decode';
 import {setAuthToken} from './util/session_api_util';
 import {logout} from './actions/session_actions';
 import './index.css';
+import { fetchAllFishes } from "./actions/fish_actions";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -27,6 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
+  //TESTING
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+  window.fetchAllFishes = fetchAllFishes;
+  //TESTING
+
   const root = document.getElementById('root');
 
   ReactDOM.render(<Root store={store} />, root);
