@@ -74,13 +74,12 @@ class SignupForm extends React.Component {
                   <br />
                   <h2 id="signup-header">Welcome</h2>
                   <br />
-                  <div id="signup-fish-logo">
-                    {/* <img src={fish} /> */}
-                    <i className="fas fa-fish fa-5x"></i>
-                  </div>
-                  {/* <button onClick={this.handleDemoLogin}>
-                              <div className="demouser">SIGN IN AS DEMO USER </div>
-                          </button> */}
+                  <input
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.update("password")}
+                    placeholder="Password"
+                  />
                   <br />
                   {/* <div className="dashed">
                               <span>OR</span>
