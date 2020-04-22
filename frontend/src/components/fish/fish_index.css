@@ -1,0 +1,130 @@
+.fish-index-page > img {
+    object-fit: fit;
+    position: absolute;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+}
+
+.fish-index-page{
+    width: 100vw;
+    height: 700px;
+    overflow: hidden;
+    position: relative;
+}
+
+.all-fish-title{
+    z-index: 200;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    color: cornflowerblue;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    margin-top: 50px
+}
+
+.all-fish-list{
+    margin: 0 auto;
+    position: relative;
+    width: 80vw;
+    border: 3px solid lightskyblue;
+    padding: 20px;
+    background: aliceblue;
+    color: black;
+    height: 50%;
+    overflow: scroll;
+}
+
+.all-fish-info{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+
+}
+
+.all-fish-info-header{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid lightskyblue;
+    margin-bottom: 15px;
+}
+
+.fish-name{
+    width: 25%;
+}
+
+.fish-description{
+    width: 30%;
+}
+
+.fish-min-legal{
+    display: flex;
+    width: 15%;
+    justify-content: center;
+}
+
+.fish-max-legal{
+    display: flex;
+    width: 15%;
+    justify-content: center;
+}
+
+.fish-max-possess{
+    display: flex;
+    width: 15%;
+    justify-content: center;
+}
+
+.fish-index-map{
+    margin: 0 auto;
+    width: 60vw;
+    height: 60vh;
+    margin-bottom: 100px;
+}
+
+.fish-index-map > #map{
+    border: 3px solid lightskyblue;
+}
+
+footer {
+    padding: 20px 0;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links > div {
+    margin-bottom: 5px;
+}
+
+.footer-copyright {
+    color: gray;
+}
+
+footer a {
+    color: rgb(14, 83, 83);
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer ul {
+    display: flex;
+}
+
+footer li {
+    padding-left: 12px;
+}
