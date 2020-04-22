@@ -1,4 +1,5 @@
 import * as FishAPIUtil from '../util/fish_api_util';
+import { receiveErrors } from './session_actions';
 
 export const RECEIVE_ALL_FISH = "RECEIVE_ALL_FISH";
 export const RECEIVE_FISH = "RECEIVE_FISH";
@@ -46,7 +47,10 @@ export const fetchFish = id => dispatch => (
 export const createFish = fish => dispatch => (
     FishAPIUtil.createFish(fish)
         .then(fish => dispatch(addFish(fish))
-        )
+        ).catch(err => {
+            debugger
+            dispatch(receiveErrors(err.response.data))
+        })
 );
 
 export const editFish = fish => dispatch => (

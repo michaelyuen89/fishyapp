@@ -25,14 +25,6 @@ class MainPage extends React.Component {
                                 <li><a href="https://github.com/michaelyuen89">Michael Yuen</a></li>
                             </ul>
                         </div>
-                        {/* <div className="footer-linkedin">
-                            <ul> LinkedIn: 
-                                <li>Elijah Nam</li>
-                                <li>Joe Shao</li>
-                                <li>Emily Wu</li>
-                                <li>Michael Yuen</li>
-                            </ul>
-                        </div> */}
                     </div>
                     <div className="footer-copyright">
                         Copyright &copy; 2020 Fishers

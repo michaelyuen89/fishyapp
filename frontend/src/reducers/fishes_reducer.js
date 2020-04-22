@@ -16,13 +16,20 @@ const FishReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch(action.type) {
         case RECEIVE_ALL_FISH:
-            return Object.assign(newState, action.fishes.data)
+            action.fishes.data.forEach(fish => {
+                newState[fish._id] = fish;
+            });
+            // return Object.assign(newState, action.fishes.data)
+            return newState;
         case RECEIVE_FISH:
-            newState.allLocations[action.fish.id] = action.fish.data;
+            newState.allLocations[action.fish._id] = action.fish.data;
             return newState;
         case ADD_FISH:
-            newState.allFishes[action.fish.id] = action.fish.data;
-            return newState;
+            // // newState.allFishes[action.fish.id] = action.fish.data;
+            // // return Object.assign(newState, action.fish.data);
+            // debugger
+            // return newState.concat([action.fish.data]);
+            return Object.assign(newState, {[action.fish.data._id]: action.fish.data});
         // case UPDATE_FISH:
         //     newState.allFishes[action.location.id] = action.fish.data;
         //     return newState;

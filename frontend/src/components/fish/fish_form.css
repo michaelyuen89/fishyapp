@@ -1,0 +1,95 @@
+.newfish-page-container {
+    width: 100%;
+    height:700px;
+    overflow: hidden;
+    position: relative;
+}
+
+.newfish-page-container > img {
+    object-fit: cover;
+    position: absolute;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+}
+
+.newfish-page-container > div {
+    position: absolute;
+    z-index: 2;
+    top: 50px;
+    left: 20vw;
+}
+
+h1.newfish-hook {
+    font-size: 72px;
+    font-weight: 600;
+}
+
+
+.newfish-form-container {
+    margin: auto;
+}
+
+
+.form-group {
+    max-height: 240px;
+    height: 100%;
+}
+
+.newfish-form {
+    width: 600px;
+    height: 480px;
+    padding: 20px 40px 0px 40px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.newfish-form input{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border: none;
+    height: 40px;
+    text-indent: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid rgb(57, 136, 136);
+    background-color: rgba(57, 136, 136, 0.2);
+    /* background-color: rgb(0, 159, 212); */
+}
+
+.submit-button input {
+    background-color: rgb(57, 136, 136);
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    height: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+    opacity: 100%;
+}
+
+.submit-button input:hover {
+    background-color: rgb(48, 114, 114);
+    color: whitesmoke;
+}
+
+.fishform-errors-container {
+    display: flex;
+    justify-content: center;
+    /* padding-bottom: 20px; */
+}
+
+.fishform-errors {
+    color: red;
+    list-style-type: disc;
+}
+
+input:focus {
+    outline: none;
+}
