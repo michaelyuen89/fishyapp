@@ -11,17 +11,18 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => res.send("Hello Non-Fishers!!"));
+// app.get("/", (req, res) => res.send("Hello Non-Fishers!!"));
 
 const path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
   console.log("we're in production");
   app.use(express.static('frontend/build'));
-  app.get('*', (req, res) => {
+  app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
   })
 }
+
 
 app.use(passport.initialize());
 require("./config/passport")(passport);
