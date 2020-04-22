@@ -36,7 +36,7 @@ class FishIndex extends React.Component {
                   <div className="fish-max-possess">Possession Limit</div>
                 </div>
                 {fishes.map(fish => (
-                  <div className="all-fish-info">
+                  <div className="all-fish-info" key={fish.name}>
                     <div className="fish-name">{fish.name}</div>
                     <div className="fish-description">{fish.description}</div>
                     <div className="fish-min-legal">{fish.minLegalSize}</div>
