@@ -65,7 +65,7 @@ router.put('/:id',
             // debugger
             for (let key in req.body) {
                 // debugger
-                if (!location[key]) {
+                if (location[key] === undefined) {
                     return res.status(404).json({ invalidfield: 'Invalid field being updated! '})
                 }
                 else if (req.body[key] && errors[key]) {
