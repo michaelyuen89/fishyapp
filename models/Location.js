@@ -22,6 +22,10 @@ const LocationSchema = new Schema({
         min: -90,
         max: 90
     },
+    fishIds: {
+        type: Array,
+        default: []
+    },
     date: {
         type: Date,
         default: Date.now
