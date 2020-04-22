@@ -8,7 +8,7 @@ module.exports = function validateFishInput(data) {
   data.description = validText(data.description) ? data.description : "";
   data.minLegalSize = validText(data.minLegalSize) ? data.minLegalSize : "";
   data.maxLegalSize = validText(data.maxLegalSize) ? data.maxLegalSize : "";
-    data.maxPosession = validText(data.maxPosession) ? data.maxPosession : "";
+    data.maxPossession = validText(data.maxPossession) ? data.maxPossession : "";
 
 
   if (!Validator.isLength(data.name, { min: 1, max: 200 })) {
@@ -23,8 +23,8 @@ module.exports = function validateFishInput(data) {
     errors.maxLegalSize = "Maximum legal size must be a nonnegative number";
   }
 
-  if (data.maxPosession && !Validator.isInt(data.maxPossion, { min: 0 })) {
-      errors.maxPosession = "Maxumum posession must be a nonnegative integer";
+  if (data.maxPossession && !Validator.isInt(data.maxPossession, { min: 0 })) {
+      errors.maxPossession = "Maxumum possession must be a nonnegative integer";
   }
 
   return {

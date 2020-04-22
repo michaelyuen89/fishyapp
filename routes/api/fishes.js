@@ -77,7 +77,7 @@ router.put(
     Fish.findOne({ _id: req.params.id })
       .then((fish) => {
         for (let key in req.body) {
-          if (!fish[key]) {
+          if (fish[key] === undefined) {
             return res
               .status(404)
               .json({ invalidfield: "Invalid field being updated! " });
