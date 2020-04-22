@@ -46,11 +46,41 @@ class FishIndex extends React.Component {
                 ))}
               </div>
             </div>
-            
-            <div className="all-fish-title">Use the map below to find the nearest places with you favorite fish! </div>
+
+            <div className="all-fish-title">
+              Use the map below to find the nearest places with you favorite
+              fish!{" "}
+            </div>
             <div className="fish-index-map">
               <Map />
             </div>
+            <footer>
+              <div className="footer-links">
+                <div className="footer-github">
+                  <ul>
+                    {" "}
+                    Github:
+                    <li>
+                      <a href="https://github.com/Sunghan11">Elijah Nam</a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/emikyu">Emily Wu</a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/joexiao97">Joe Xiao</a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/michaelyuen89">
+                        Michael Yuen
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="footer-copyright">
+                Copyright &copy; 2020 Fishers
+              </div>
+            </footer>
           </>
         );
     }
