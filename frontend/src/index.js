@@ -28,19 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
-<<<<<<< HEAD
 
   // testing
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   // testing
-=======
-  //TESTING
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.fetchAllFishes = fetchAllFishes;
-  //TESTING
->>>>>>> fish
 
   const root = document.getElementById('root');
 

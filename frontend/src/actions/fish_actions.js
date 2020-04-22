@@ -47,7 +47,10 @@ export const fetchFish = id => dispatch => (
 export const createFish = fish => dispatch => (
     FishAPIUtil.createFish(fish)
         .then(fish => dispatch(addFish(fish))
-        ).catch(err => dispatch(receiveErrors(err.response.data)))
+        ).catch(err => {
+            debugger
+            dispatch(receiveErrors(err.response.data))
+        })
 );
 
 export const editFish = fish => dispatch => (
