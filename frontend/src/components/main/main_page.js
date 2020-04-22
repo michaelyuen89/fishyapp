@@ -8,7 +8,7 @@ class MainPage extends React.Component {
         return (
             <>
                 <div className="main-page-container">
-                    <img src={splashImage} />
+                    <img src={splashImage} alt="splash" />
                     <div>
                         <h1 className="splash-hook">A Fisher's App</h1>
                         <div className="splash-slogan">From the team that brought you Map Fish to Docks (and nekobook),<br/>

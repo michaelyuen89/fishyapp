@@ -1,6 +1,7 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter , Link} from 'react-router-dom';
 import './login_form.css';
+import signupImage from "./signup_background.png";
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -52,7 +53,7 @@ class LoginForm extends React.Component {
         return (
             <ul>
                 {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li key={`error-${i}`} className="user-errors">
                         {this.state.errors[error]}
                     </li>
                 ))}
@@ -62,31 +63,52 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-          <div className="login-form-container-modal" id="login-modal">
-              <div className="login-form-container">
-                <form onSubmit={this.handleSubmit}>
-                <div className="login-form-modal">
-                    <input onClick={this.close_modal} className="close-modal" type="button" value="x" />
+          <div className="outer-container" id="login-modal">
+            <img src={signupImage} id="signup-background-img" alt="login"/>
+            <div className="login-form-container">
+              <form onSubmit={this.handleSubmit}>
+                <div className="login-form">
+                  <br />
+                  <h2 id="signup-header">Login</h2>
+                  <br />
+                  <div id="signup-fish-logo">
+                    <i className="fas fa-fish fa-5x"></i>
+                  </div>
+                  <br />
+                  <div className="login-form-group">
                     <input
-                    className="login-input"
-                    type="text"
-                    value={this.state.email}
-                    onChange={this.update("email")}
-                    placeholder="Email"
+                      className="login-input"
+                      type="text"
+                      value={this.state.email}
+                      onChange={this.update("email")}
+                      placeholder="Email"
                     />
                     <br />
                     <input
-                    className="login-input"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.update("password")}
-                    placeholder="Password"
+                      className="login-input"
+                      type="password"
+                      value={this.state.password}
+                      onChange={this.update("password")}
+                      placeholder="Password"
                     />
                     <br />
-                    <input className="submit-btn" type="submit" value="Submit" />
+                  </div>
+                  <div className="user-errors-container">
                     {this.renderErrors()}
+                  </div>
+                  <div id="submit-button">
+                    <input type="submit" value="Log in" />
+                  </div>
+                  <br />
+                  <br />
+                  <div id="switch-login-signup">
+                    <span>New to FishyDex? </span>
+                    <Link className="signup-link" to="/signup">
+                      Sign Up
+                    </Link>
+                  </div>
                 </div>
-                </form>
+              </form>
             </div>
           </div>
         );

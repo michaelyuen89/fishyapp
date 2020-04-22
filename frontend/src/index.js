@@ -6,8 +6,8 @@ import jwt_decode from 'jwt-decode';
 import {setAuthToken} from './util/session_api_util';
 import {logout} from './actions/session_actions';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// import App from './App';
+// import * as serviceWorker from './serviceWorker';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

@@ -13,7 +13,7 @@ class FishingMap extends React.Component {
     }
 
     componentDidMount() {
-        this.initMap();
+        this.props.initMap();
     }
 
     searchAutoComplete() {
