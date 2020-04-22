@@ -5,7 +5,7 @@ import FishIndex from "./fish_index";
 
 const mapStateToProps = state => {
     return{
-        fishes: state.entities.fishes.allFishes
+        fishes: state.entities.fishes
     }
 };
 
