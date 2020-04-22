@@ -25,6 +25,10 @@ const FishSchema = new Schema({
         required: false,
         min: 0
     },
+    locationIds: {
+        type: Array,
+        default: []
+    },
     date: {
         type: Date,
         default: Date.now
