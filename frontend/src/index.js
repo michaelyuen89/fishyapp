@@ -6,9 +6,8 @@ import jwt_decode from 'jwt-decode';
 import {setAuthToken} from './util/session_api_util';
 import {logout} from './actions/session_actions';
 import './index.css';
-import { fetchAllFishes } from "./actions/fish_actions";
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// import App from './App';
+// import * as serviceWorker from './serviceWorker';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //TESTING
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.fetchAllFishes = fetchAllFishes;
   //TESTING
 
   const root = document.getElementById('root');

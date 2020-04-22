@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MarkerManager from '../../../util/marker_manager';
+import { GOOGLE_MAP_KEY } from '../../../../../.env';
 
 class Map extends React.Component {
     constructor(props){
@@ -57,12 +58,22 @@ class Map extends React.Component {
     //     let searchinput = document.getElementById('sea
     // }
 
+    // renderMap() {
+    //     const url = "https://maps.googleapis.com/maps/api/js?key="
+    //     const key = GOOGLE
+    //     const urlEnd = "&libraries=places&callback=initMap"
+    //     loadScript(`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAP_KEY}&libraries=places&callback=initMap`)
+    //     window.initMap = this.initMap;
+    // }
+
 
 
     render() {
         return (
             <div>
                 <div id="map-container" className="google-map" ref="map">
+
+
 
                 </div>
             </div>
