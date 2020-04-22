@@ -38,6 +38,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/api/users", users);
+app.use("/api/fishes", fishes);
+app.use("/api/locations", locations);
+
 
 
 const port = process.env.PORT || 5000;
