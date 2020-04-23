@@ -2,17 +2,16 @@ import { connect } from "react-redux";
 import { fetchAllFishes, fetchFish } from "../../actions/fish_actions";
 import FishShow from "./fish_show";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     fishes: state.entities.fishes,
-    fish: state.entities.fish
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchAllFishes: () => dispatch(fetchAllFishes()),
-    fetchFish: (fishId) => dispatch(fetchFish(fishId))
+    // fetchFish: (fishId) => dispatch(fetchFish(fishId))
   };
 };
 

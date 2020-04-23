@@ -3,6 +3,7 @@ import NavbarContainer from "../nav/navbar_container";
 import splashImage from "../main/splash_image.jpg";
 import "./fish_index.css";
 import Map from '../map/map';
+import { Link } from "react-router-dom";
 
 class FishIndex extends React.Component {
 
@@ -37,7 +38,14 @@ class FishIndex extends React.Component {
                 </div>
                 {fishes.map(fish => (
                   <div className="all-fish-info" key={fish.name}>
-                    <div className="fish-name">{fish.name}</div>
+                    <Link
+                      className="fish-name-li"
+                      to={`/fishes/${fish.name
+                        .toLowerCase()
+                        .replace(" ", "-")}`}
+                    >
+                      {fish.name}
+                    </Link>
                     <div className="fish-description">{fish.description}</div>
                     <div className="fish-min-legal">{fish.minLegalSize}</div>
                     <div className="fish-max-legal">{fish.maxLegalSize}</div>

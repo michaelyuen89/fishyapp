@@ -27,6 +27,15 @@ router.get("/:id", (req, res) => {
     );
 });
 
+// router.get("/:fish_name", (req, res) => {
+//   debugger
+//   Fish.find({name: req.params.name})
+//     .then(fish => res.json(fish))
+//     .catch(err =>
+//       res.status(404).json({ nofishfound: "No fish found with that ID" })
+//     );
+// });
+
 // create fish via protected route
 router.post(
   "/",
