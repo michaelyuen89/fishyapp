@@ -22,14 +22,14 @@ const LocationSchema = new Schema({
         min: -90,
         max: 90
     },
-    // fishIds: {
-    //     type: Array,
-    //     default: []
-    // },
     fishIds: {
-        type: [Schema.Types.ObjectId],
-        ref: 'fishes'
+        type: Array,
+        default: []
     },
+    // fishIds: {
+    //     type: [Schema.Types.ObjectId],
+    //     ref: 'fishes'
+    // },
     date: {
         type: Date,
         default: Date.now
