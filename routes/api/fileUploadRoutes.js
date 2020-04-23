@@ -82,8 +82,8 @@ router.post("/upload", upload.single("file"), function (req, res) {
                 description: req.body.description,
                 fileLink: s3FileURL + file.originalname,
                 s3_key: params.Key,
-                user: req.user.id,
-                fish: req.fish.id
+                // user: req.user.id,
+                // fish: req.fish.id
             };
             var document = new DOCUMENT(newFileUploaded);
             document.save(function (error, newFile) {
