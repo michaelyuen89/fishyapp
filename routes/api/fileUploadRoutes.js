@@ -28,6 +28,19 @@ router.route("/").get((req, res, next) => {
     );
 });
 
+router.get('/user/:user_id', (req, res) => {
+    DOCUMENT.find({user: req.params.user_id})
+        .then(documents => res.json(documents))
+        .catch(err => res.status(404).json({ nopicsfound: "No pics from this user"}))
+});
+
+router.get('/fish/:fish_id', (req, res) => {
+    DOCUMENT.find({ fish: req.params.fish_id })
+        .then(documents => res.json(documents))
+        .catch(err => res.status(404).json({ nopicsfound: "No pics for this fish" }))
+});
+
+
 // Route to get a single existing GO data (needed for the Edit functionality)
 router.route("/:id").get((req, res, next) => {
     DOCUMENT.findById(req.params.id, (err, go) => {
@@ -68,7 +81,9 @@ router.post("/upload", upload.single("file"), function (req, res) {
             var newFileUploaded = {
                 description: req.body.description,
                 fileLink: s3FileURL + file.originalname,
-                s3_key: params.Key
+                s3_key: params.Key,
+                user: req.user.id,
+                fish: req.fish.id
             };
             var document = new DOCUMENT(newFileUploaded);
             document.save(function (error, newFile) {
