@@ -17,7 +17,7 @@ let documentSchema = new Schema(
         },
         fish: {
             type: Schema.Types.ObjectId,
-            ref: 'fishes'
+            ref: 'fish'
         }
     },
     {

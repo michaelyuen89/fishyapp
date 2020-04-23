@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import PhotoUpload from './photo_upload';
 import { uploadPhoto } from '../../actions/document_actions';
 import { fetchAllFishes } from '../../actions/fish_actions';
+import { withRouter } from 'react-router-dom';
 
 const msp = state => ({
     currentUser: state.session.user,
@@ -15,4 +16,4 @@ const mdp = dispatch => ({
     
 });
 
-export default connect(msp, mdp)(PhotoUpload);
+export default withRouter(connect(msp, mdp)(PhotoUpload));

@@ -80,12 +80,13 @@ router.post("/upload", passport.authenticate('jwt', { session: false }), upload.
             res.status(500).json({ error: true, Message: err });
         } else {
             res.send({ data });
+            // debugger
             var newFileUploaded = {
                 description: req.body.description,
                 fileLink: s3FileURL + file.originalname,
                 s3_key: params.Key,
                 user: req.user.id,
-                // fish: req.fish.id
+                fish: req.body.fishId
             };
             var document = new DOCUMENT(newFileUploaded);
             document.save(function (error, newFile) {
