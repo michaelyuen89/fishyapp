@@ -5,6 +5,8 @@ const router = express.Router();
 const DOCUMENT = require("../../models/Document");
 const multer = require("multer");
 var AWS = require("aws-sdk");
+const passport = require("passport");
+
 
 // Multer ships with storage engines DiskStorage and MemoryStorage
 // And Multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
@@ -53,7 +55,7 @@ router.route("/:id").get((req, res, next) => {
 
 // route to upload a pdf document file
 // In upload.single("file") - the name inside the single-quote is the name of the field that is going to be uploaded.
-router.post("/upload", upload.single("file"), function (req, res) {
+router.post("/upload", passport.authenticate('jwt', { session: false }), upload.single("file"), function (req, res) {
     const file = req.file;
     const s3FileURL = process.env.AWS_Uploaded_File_URL_LINK;
 
@@ -82,7 +84,7 @@ router.post("/upload", upload.single("file"), function (req, res) {
                 description: req.body.description,
                 fileLink: s3FileURL + file.originalname,
                 s3_key: params.Key,
-                // user: req.user.id,
+                user: req.user.id,
                 // fish: req.fish.id
             };
             var document = new DOCUMENT(newFileUploaded);

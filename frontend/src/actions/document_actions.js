@@ -40,7 +40,7 @@ export const fetchUserPhotos = id => dispatch => (
 export const fetchFishPhotos = id => dispatch => (
     PhotoAPIUtil.fetchFishPhotos(id)
         .then(photos => receiveFishPhotoso(photos))
-        .then(err =< console.log(err))
+        .then(err =>console.log(err))
 );
 
 export const uploadPhoto = data => dispatch => (
