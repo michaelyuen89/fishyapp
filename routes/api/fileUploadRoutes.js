@@ -2,7 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const router = express.Router();
-const DOCUMENT = require("../models/Document");
+const DOCUMENT = require("../../models/Document");
 const multer = require("multer");
 var AWS = require("aws-sdk");
 
