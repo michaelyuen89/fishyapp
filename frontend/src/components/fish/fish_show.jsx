@@ -38,6 +38,7 @@ class FishShow extends React.Component {
                             <span>Max Legal Size</span>
                             <div id ="fish-show-size-max">{this.targetFish.maxLegalSize}</div>
                         </div>
+                        <span>Max Allowed Amount</span> 
                         <div id="fish-show-max">{this.targetFish.maxPossession}</div>
                     </div>
                         <span></span>
