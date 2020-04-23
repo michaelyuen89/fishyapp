@@ -1,4 +1,4 @@
-.fish-show-page {
+/* .fish-show-page {
     display: flex;
     max-width: 1320px;
     width: 100vw;
@@ -14,12 +14,8 @@
     max-height: 600px;
     width: 100vw;
     height: 80vh;
-    /* background-color: blue; */
-    /* linear-gradient(to right, rgba(15, 80, 136, 1), rgba(0, 255, 231, .70)); */
-    /* background-image: linear-gradient(to right, rgba(15, 80, 136, 1), rgba(0, 255, 231, .20)); */
     background-color: rgb(57, 136, 136);
     color: white;
-    /* justify-content: center; */
     align-content: center;
     align-items: center;
     padding-top: 5%;
@@ -63,4 +59,135 @@
     color: white;
     font-size: 20px;
     font-weight: bold;
+} */
+
+.fish-gmaps-section{
+    width: 45%;
+    height: 100%;
+}
+
+.fish-gmaps-section > #map{
+    border: 3px solid lightskyblue;
+
+}
+
+.fish-gmaps-section > #map{
+    object-fit: fill;
+}
+
+.fish-show-page{
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+}
+
+.fish-show-text{
+    width: 55%;
+    height: 100%;
+    /* border: 1px solid lightblue; */
+    /* display: flex; */
+    /* justify-content: flex-end; */
+}
+
+.fish-show-name{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 888;
+    color: cornflowerblue;
+}
+
+.fish-show-info{
+    float: right;
+    width: 45%;
+    /* border: 1px solid green; */
+}
+
+.fish-show-info span{
+    color: red;
+}
+
+.fish-show-img{
+    width: 54%;
+    border: 2px solid cornflowerblue;
+    height: 50%;
+}
+
+.fish-show-desc-box{
+    width: 100%;
+    overflow: hidden;
+}
+
+.fish-show-desc-box > .fish-show-desc{
+    text-align: center;
+    margin-top: 10px;
+    color: dodgerblue;
+    font-size: 25px;
+    font-weight: 888;
+}
+
+.fish-show-description{
+    padding: 10px 35px;
+}
+
+footer {
+    padding: 20px 0;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links > div {
+    margin-bottom: 5px;
+}
+
+.footer-copyright {
+    color: gray;
+}
+
+footer a {
+    color: rgb(14, 83, 83);
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer ul {
+    display: flex;
+}
+
+footer li {
+    padding-left: 12px;
+}
+
+.no-fish-page{
+    width: 100vw;
+    height: 100vh;
+}
+
+.fish-wrap{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.no-fish-pic{
+    width: 50%;
+}
+
+.no-fish-text{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 888;
+    color: cornflowerblue;
+    /* position: fixed; */
 }
