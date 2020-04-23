@@ -2,21 +2,36 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MarkerManager from '../../util/marker_manager';
 import {withRouter} from 'react-router-dom';
-import './map.css'
+// import { GoogleMap, withGoogleMap, withScriptjs, InfoWindow, Marker} from 'react-google-maps';
+// import Geocode from 'react-geocode';
+// Geocode.setApiKey("AIzaSyCkLiuUnbBfwpYMMEGN8lfswBVUlGDoFdw");
+// Geocode.enableDebug
+import './map.css';
+// import GOOGLE_API_KEY from '../../../../config/keys/GOOGLE_API_KEY';
+require('dotenv').config();
 
-// const options = {
-//     center : { lat:40.712776, lng:-74.005974},
+// const googleAPIKEy = process.env.GOOGLE_API_KEY
+
+
+// const mapOptions = {
+//     center: { lat: 40.736263, lng: -73.993806},
 //     zoom: 15,
 // }
+
+// const getCoordsObj = latLng => ({
+//     lat: latLng.lat(),
+//     lng: latLng.lng()
+// });
 
 
 
 class Map extends React.Component {
     constructor(props){
         super(props);
+        // debugger;
         
         // this.initMap = this.initMap.bind(this);
-        this.map = null;
+        this.initMap = this.initMap.bind(this);
         // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
     // this.searchAutoComplete = this.searchAutoComplete.bind(this)
     // this.searchUpdate = this.searchUpdate.bind(this);
@@ -24,57 +39,223 @@ class Map extends React.Component {
     }
 
     componentDidMount() {
+        // const map = document.getElementById('map');
+        // this.map = new window.google.maps.Map(map, mapOptions)
         this.renderMap();
     }
 
     renderMap() {
-        loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyCkLiuUnbBfwpYMMEGN8lfswBVUlGDoFdw&libraries=places&callback=initMap")
+        const googleApiKey = process.env.GOOGLE_API_KEY;
+        loadScript(`https://maps.googleapis.com/maps/api/js?key=AIzaSyCkLiuUnbBfwpYMMEGN8lfswBVUlGDoFdw&libraries=places&callback=initMap`)
+        // loadScript(`https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js`)
         window.initMap = this.initMap;
+    }
+
+    componentDidUpdate() {
+        this.renderMap();
     }
     
     initMap() {
+
+        let map = null;
+        let newMarkers = [];
+        let bounds = new window.google.maps.LatLngBounds();
+        
+        
         const options = {
-            zoom: 16,
+            zoom: 10,
             center: {lat: 40.736263, lng: -73.993806}
         }
-        this.map = new window.google.maps.Map(document.getElementById('map'), options);
+        map = new window.google.maps.Map(document.getElementById('map'), options);
+        
+        // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+        // if (this.props.singleLocation) {
+        //     this.props.fetchLocation(this.props.location.id);
+        // } else {
+        //     this.registerListeners();
+        //     this.MarkerManager.updateMarkers(this.props.benches);
+        // }
+
+        window.google.maps.event.addListener(map, 'click', function (event) {
+            // Add marker
+            addMarker({ coords: event.latLng });
+        });
+
+        let pos;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
     }
 
-    // componentDidMount() {
-    //     // this.initMap()
-    //     this.map = new google.maps.Map(this.refs.map, options);
-    //     this.registerListeners();
-    //     this.setCurrentPosition(map);
-    //     this.MarkerManager.updateMarkers(this.props.locations);
-    //     this.searchAutoComplete();
-    // }
+        
+        // Add marker
+        // var marker = new google.maps.Marker({
+        //   position:{lat:42.4668,lng:-70.9495},
+        //   map:map,
+        //   icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        // });
+  
+        // var infoWindow = new google.maps.InfoWindow({
+        //   content:'<h1>Lynn MA</h1>'
+        // });
+  
+        // marker.addListener('click', function(){
+        //   infoWindow.open(map, marker);
+        // });
+    
+        let infoWindow = new window.google.maps.InfoWindow();
 
-    updateCenter(e) {
-        e.preventDefault();
-        const searchInput = document.getElementById('search-input');
-        this.geocoder.geocode({ 'address': this.state.location }, results => {
-            //google library to provide geometric data.
-            this.setState({city: results[0].formatted_address});
-            this.map.setCenter(results[0].geometry.location);
-            //set map distance view;
-            this.map.setZoom(13);
-        })
-    }
+        // Array of markers
+        let markers = [
+            {
+                coords: { lat: 40.570149, lng: -73.983433 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Pat Auletta Steeplechase Pier</h1>'
+            },
+            {
+                coords: { lat: 40.639458, lng: -74.038012 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>American Veterans Memorial Pier</h1>'
+            },
+            {
+                coords: { lat: 40.628723, lng: -73.883914 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Canarsie Pier</h1>'
+            },
+            {
+                coords: { lat: 40.577969, lng: -74.076719 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Ocean Breeze Fishing Pier</h1>'
+            },
+            {
+                coords: { lat: 40.678415, lng: -74.018139 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Louis Valentino, Jr. Park and Pier</h1>'
+            },
+            {
+                coords: { lat: 40.890694, lng: -73.889304 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Van Cortlandt Lake</h1>'
+            },
+            {
+                coords: { lat: 40.583969, lng: -73.945981 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Sheepshead Bay Piers</h1>'
+            },
+            {
+                coords: { lat: 40.67607, lng: -73.785474 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Baisley Pond</h1>'
+            },
+            {
+                coords: { lat: 40.779733, lng: -73.99046 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Pier 1</h1>'
+            },
+            {
+                coords: { lat: 40.762684, lng: -74.019844 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Weehawken Recreation Pier</h1>'
+            },
+            {
+                coords: { lat: 40.72986, lng: -73.960702 },
+                iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>WNYC Transmitter Park</h1>'
+            },
 
-    // setCurrentPosition(map) {
-    //     let pos;
-    //     if (navigator.geoloction) {
-    //         navigator.geolocation.getCurrentPosition(
-    //             position => {
-    //                 pos = {
-    //                     lat: position.coords.latitude,
-    //                     lng: position.coords.longitude
-    //                 };
-    //                 map.setCenter(pos)
-    //             }
-    //         )
-    //     }
-    // }
+        ];
+
+        // Loop through markers
+        for (var i = 0; i < markers.length; i++) {
+            // Add marker
+            addMarker(markers[i]);
+        }
+
+        // Add Marker Function
+        function addMarker(props) {
+            var marker = new window.google.maps.Marker({
+                position: props.coords,
+                map: map,
+                title: props.name,
+                draggable: true
+                //icon:props.iconImage
+            });
+
+            // Check for customicon
+            if (props.iconImage) {
+                // Set icon image
+                marker.setIcon(props.iconImage);
+            }
+
+            // Check content
+            if (props.content) {
+                var infoWindow = new window.google.maps.InfoWindow({
+                    content: props.content
+                });
+
+                marker.addListener('click', function () {
+                    infoWindow.open(map, marker);
+                });
+            }
+        }
+
+        function serachLocation(position) {
+            let search = {
+                location: position,
+            }
+        }
+
+        // function updateCenter(e) {
+        //     e.preventDefault();
+        //     const searchInput = document.getElementById('search-input');
+        //     this.geocoder.geocode({ 'address': this.state.location }, results => {
+        //         //google library to provide geometric data.
+        //         this.setState({ city: results[0].formatted_address });
+        //         this.map.setCenter(results[0].geometry.location);
+        //         //set map distance view;
+        //         this.map.setZoom(13);
+        //     })
+        // }
+
+        // function setCurrentPosition(map) {
+        //     let pos;
+        //     if (navigator.geolocation) {
+        //         navigator.geolocation.getCurrentPosition(
+        //             position => {
+        //                 pos = {
+        //                     lat: position.coords.latitude,
+        //                     lng: position.coords.longitude
+        //                 };
+        //                 map.setCenter(pos)
+        //             }
+        //         )
+        //     }     
+        }
+
 
     // searchAutoComplete() {
     //     let searchinput = document.getElementById('search-input');
@@ -113,9 +294,7 @@ class Map extends React.Component {
     //     this.MarkerManager.updateMarkers(this.props.locations);
     // }
 
-    // handleMarkerClick(location) {
-    //     this.props.history.push(`locations/${location.id}`)
-    // }
+
 
 
 
@@ -143,26 +322,45 @@ class Map extends React.Component {
     render() {
         return (
             <>
+                {/* <GoogleMap /> */}
                 <div id="map"></div>
+                {/* <form id="search-bar" onSubmit={this.updateCenter}>
+                    <label id="search-label">Choose a map location
+                                    <div>
+                            <input
+                                type="search"
+                                className="search-form-input"
+                                id="search-input"
+                                value={this.state.location}
+                                onChange={this.update('location')}
+                                placeholder="Address"
+                            />
+                            <button
+                                type="submit"
+                                className="location-search">SEARCH</button>
+                        </div>
+                    </label>
+                </form> */}
+
             </>
             // <div id="map-container">
-            //     <form id="search-bar" onSubmit={this.updateCenter}>
-            //         <label id="search-label">Choose a map location
-            //                         <div>
-            //                 <input
-            //                     type="search"
-            //                     className="search-form-input"
-            //                     id="search-input"
-            //                     value={this.state.location}
-            //                     onChange={this.update('location')}
-            //                     placeholder="Address"
-            //                 />
-            //                 <button
-            //                     type="submit"
-            //                     className="location-search">SEARCH</button>
-            //             </div>
-            //         </label>
-            //     </form>
+                // <form id="search-bar" onSubmit={this.updateCenter}>
+                //     <label id="search-label">Choose a map location
+                //                     <div>
+                //             <input
+                //                 type="search"
+                //                 className="search-form-input"
+                //                 id="search-input"
+                //                 value={this.state.location}
+                //                 onChange={this.update('location')}
+                //                 placeholder="Address"
+                //             />
+                //             <button
+                //                 type="submit"
+                //                 className="location-search">SEARCH</button>
+                //         </div>
+                //     </label>
+                // </form>
             //     <div id="map-container" className="google-map" ref="map">
 
             //     </div>
