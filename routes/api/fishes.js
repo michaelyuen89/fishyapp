@@ -28,6 +28,7 @@ router.get("/:id", (req, res) => {
     );
 });
 
+// special index - pulling all fish for specific location
 router.get("/location/:location_id", (req, res) => {
   Location.findOne({_id: req.params.location_id})
     .then((location) => {
