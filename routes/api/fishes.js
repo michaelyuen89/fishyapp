@@ -84,7 +84,18 @@ router.put(
           } else if (req.body[key] && errors[key]) {
             return res.status(404).json(errors[key]);
           } else if (req.body[key]) {
-            fish[key] = req.body[key];
+            // debugger
+            if (key === "locationIds") {
+              if (req.body[key] instanceof Array) {
+                fish[key] = req.body[key];
+              }
+              else {
+                fish[key] = fish[key].concat(req.body[key]);
+              }
+            }
+            else {
+              fish[key] = req.body[key];
+            }
           }
         }
         fish.save().then((fish) => res.json(fish));
