@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const fetchAllLocations = () => {
+    debugger;
     return axios.get('/api/locations')
 };
 
