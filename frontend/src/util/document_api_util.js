@@ -8,8 +8,8 @@ export const fetchPhoto = id => {
     return axios.get(`/api/document/${id}`);
 };
 
-export const uploadPhoto = file => {
-    return axios.post('/api/document/upload', file);
+export const uploadPhoto = data => {
+    return axios.post('/api/document/upload', data);
 };
 
 export const fetchPhotosByUser = id => {
