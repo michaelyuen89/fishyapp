@@ -1,17 +1,17 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require('cors');
 const app = express();
+app.use(cors());
 const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const fileUploadRoutes = require("./routes/fileUploadRoutes");
-
 const users = require("./routes/api/users");
 const locations = require("./routes/api/locations");
 const fishes = require("./routes/api/fishes");
-
 
 mongoose
   .connect(db, { useNewUrlParser: true })

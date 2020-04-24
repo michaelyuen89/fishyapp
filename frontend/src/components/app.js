@@ -9,6 +9,7 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import FishFormContainer from './fish/fish_form_container';
 import FishIndexContainer from './fish/fish_index_container';
+import UserPageContainer from './user/user_page_container';
 
 const App = () => (
     <div>
@@ -18,6 +19,7 @@ const App = () => (
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <ProtectedRoute exact path="/new_fish" component={FishFormContainer}/>
             <ProtectedRoute exact path="/fishes" component={FishIndexContainer} />
+            <ProtectedRoute exact path="/profile" component={UserPageContainer} />
             <Route path="/" component={MainPage} />
         </Switch>
     </div>
