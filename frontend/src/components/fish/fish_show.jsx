@@ -7,6 +7,7 @@ import fishyPic from "./fishy.jpg"
 import noFish from "./nofish.jpg"
 import FishUploadContainer from "./fish_photo_upload_container";
 import FishShowsPhotosContainer from "./fish_shows_photos_container";
+import FishLocationFormContainer from './fish_location_form_container';
 
 
 class FishShow extends React.Component {
@@ -135,31 +136,36 @@ class FishShow extends React.Component {
                       />
                     </div>
                     <div className="fish-show-info">
-                      <div className="fish-show-size">
-                        <div>
+                      <div key="fish-show-size" className="fish-show-size">
+                        <div key="one">
                           <span>Min Legal Size: </span>
                           {this.targetFish.minLegalSize
                             ? this.targetFish.minLegalSize
                             : "None"}
                         </div>
-                        <div>
+                        <div key="two">
                           <span>Max Legal Size: </span>
                           {this.targetFish.maxLegalSize
                             ? this.targetFish.maxLegalSize
                             : "None"}
                         </div>
-                        <div>
+                        <div key="three">
                           <span>Max Allowed Amount: </span>
                           {this.targetFish.maxPossession
                             ? this.targetFish.maxPossession
                             : "None"}
                         </div>
-                        <div>
+                        <div key="four">
                           <span>Description: </span>
                           {this.targetFish.description
                             ? this.targetFish.description
                             : "No description provided"}
                         </div>
+                        <FishLocationFormContainer
+                          key="fish-location-form-container"
+                          fishId={this.targetFish._id}
+                          fish={this.targetFish}
+                        />
                       </div>
                     </div>
                   </div>

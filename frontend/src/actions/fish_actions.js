@@ -57,6 +57,9 @@ export const editFish = fish => dispatch => (
     FishAPIUtil.editFish(fish)
         .then(fish => dispatch(updateFish(fish))
         )
+        .catch(err => {
+            debugger
+        })
 );
 
 export const deleteFish = id => dispatch => (
