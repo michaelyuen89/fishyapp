@@ -20,10 +20,10 @@ class NavBar extends React.Component {
                 <div className="nav-links logged-in">
                     <div className="nav-links-left">
                         <div>
-                            <Link to={'/fishes'}>All fish</Link>
+                            <Link to={'/profile'}>Profile</Link>
                         </div>
                         <div>
-                            <Link to={'/profile'}>Profile</Link>
+                            <Link to={'/fishes'}>All fish</Link>
                         </div>
                         <div>
                             <Link to={'/new_fish'}>Add a fish</Link>
@@ -54,7 +54,7 @@ class NavBar extends React.Component {
             <div className="navbar-logo">
               <i className="fas fa-fish"></i>
               <Link to={"/"}>
-                <span>FishyDex</span>
+                <span className="fishydex-logo">FishyDex</span>
               </Link>
             </div>
             {this.getLinks()}

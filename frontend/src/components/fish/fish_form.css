@@ -92,3 +92,16 @@ h1.newfish-hook {
 input:focus {
     outline: none;
 }
+
+span.add-photo {
+    color: teal;
+}
+
+.fish-photo-upload-form input[type="submit"] {
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    background: teal;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+}
