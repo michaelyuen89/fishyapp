@@ -9,9 +9,11 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import FishFormContainer from './fish/fish_form_container';
 import FishIndexContainer from './fish/fish_index_container';
+import UserPageContainer from './user/user_page_container';
 import FishShowContainer from './fish/fish_show_container';
 
 import PhotoExample from './photos/photo_example';
+
 
 const App = () => (
     <div>
@@ -19,14 +21,14 @@ const App = () => (
         <Switch>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <ProtectedRoute exact path="/new_fish" component={FishFormContainer}/>
+            <ProtectedRoute exact path="/new_fish" component={FishFormContainer} />
             <ProtectedRoute exact path="/fishes" component={FishIndexContainer} />
             <ProtectedRoute exact path="/fishes/:fish_name" component={FishShowContainer} />
             <ProtectedRoute exact path="/new_photo" component={PhotoExample} />
+            <ProtectedRoute exact to="/profile" component={UserPageContainer} />
             <Route path="/" component={MainPage} />
         </Switch>
     </div>
 );
-
 export default App;
 

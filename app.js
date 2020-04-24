@@ -1,7 +1,9 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require('cors');
 const app = express();
+app.use(cors());
 const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -11,7 +13,6 @@ const fileUploadRoutes = require("./routes/api/fileUploadRoutes");
 const users = require("./routes/api/users");
 const locations = require("./routes/api/locations");
 const fishes = require("./routes/api/fishes");
-
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -45,4 +46,3 @@ app.use("/api/document", fileUploadRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
-

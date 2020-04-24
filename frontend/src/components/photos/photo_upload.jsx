@@ -44,7 +44,7 @@ class PhotoUpload extends React.Component {
                     file: null,
                     fishId: "",
                 });
-                debugger
+                // debugger
                 this.fileInput.current.value = null;
                 window.location.reload(false);
             }
