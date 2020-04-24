@@ -20,13 +20,16 @@ class NavBar extends React.Component {
                 <div className="nav-links logged-in">
                     <div className="nav-links-left">
                         <div>
-                            <Link to={'/fishes'}>All fish</Link>
-                        </div>
-                        <div>
                             <Link to={'/profile'}>Profile</Link>
                         </div>
                         <div>
+                            <Link to={'/fishes'}>All fish</Link>
+                        </div>
+                        <div>
                             <Link to={'/new_fish'}>Add a fish</Link>
+                        </div>
+                        <div>
+                            <Link to={'/location'}>Location</Link>
                         </div>
                     </div>
                     <div className="nav-links-right">

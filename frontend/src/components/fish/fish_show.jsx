@@ -2,7 +2,7 @@ import React from 'react';
 import NavbarContainer from "../nav/navbar_container";
 import splashImage from "../main/splash_image.jpg";
 import "./fish_show.css";
-import Map from '../map/map';
+import MapContainer from '../map/map_container';
 import fishyPic from "./fishy.jpg"
 import noFish from "./nofish.jpg"
 
@@ -107,7 +107,7 @@ class FishShow extends React.Component {
                 </div>
 
                 <div className="fish-gmaps-section">
-                  <Map />
+                  <MapContainer />
                 </div>
               </div>
               <footer>

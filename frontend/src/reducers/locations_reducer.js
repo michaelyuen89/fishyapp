@@ -6,31 +6,29 @@ import {
     REMOVE_LOCATION
 } from '../actions/location_actions';
 
-const initialState = Object.freeze({
-    allLocations: {},
-    currentLocation: {}
-})
 
-const LocationsReducer = (state = initialState, action) => {
+const LocationsReducer = (state = {}, action) => {
     Object.freeze(state);
-    let newState = Object.assign({}, initialState);
+    let newState = Object.assign({}, state);
     switch(action.type) {
         case RECEIVE_ALL_LOCATIONS:
-            newState.allLocations = action.locations.data;
+            // debugger;
+            action.locations.data.forEach(location => {
+                newState[location._id] = location
+            });
             return newState;
         case RECEIVE_LOCATION:
-            newState.allLocations[action.location.id] = action.location.data;
-            newState.currentLocation = action.location;
+            // debugger;
+            newState.allLocations[action.location._id] = action.location.data;
             return newState;
         case ADD_LOCATION:
-            newState.allLocations[action.location.id] = action.location.data;
-            newState.currentLocation = action.location;
-            return newState;
-        case UPDATE_LOCATION:
-            newState.allLocations[action.location.id] = action.location.data
-
+            return Object.assign(newState, {[action.location.data._id]: action.location.data})
         case REMOVE_LOCATION:
-            
+            newState = Object.assign({}, state);
+            delete newState[action.location.id];
+            return newState;
+        default:
+            return state;
     }
 }
 

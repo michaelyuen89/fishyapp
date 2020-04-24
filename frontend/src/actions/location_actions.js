@@ -1,5 +1,5 @@
-import * as APIUtil from '../util/location_api_util';
-import { RECEIVE_SESSION_ERRORS } from './session_actions';
+import * as LocationAPIUtil from '../util/location_api_util';
+import { receiveErrors } from './session_actions';
 // import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_ALL_LOCATIONS = "RECEIVE_ALL_LOCATIONS";
@@ -30,11 +30,6 @@ export const updateLocation = (location) => ({
     location
 });
 
-export const receiveErrors = errors => ({
-    type:RECEIVE_SESSION_ERRORS,
-    errors
-})
-
 export const removeLocation = (location) => ({
     type: REMOVE_LOCATION,
     location
@@ -45,35 +40,35 @@ export const clearLocations = () => ({
 })
 
 export const fetchAllLocations = () => dispatch => (
-    APIUtil.fetchAllLocations()
-        .then(() => dispatch(receiveAllLocations())
-        ).catch(err => (dispatch(receiveErrors(err.response.data))
-    ))
+    LocationAPIUtil.fetchAllLocations()
+        .then(locations => dispatch(receiveAllLocations(locations))
+        // ).catch(err => (dispatch(receiveErrors(err.response.data))
+    )
 );
 
 export const fetchLocation = (id) => dispatch => (
-    APIUtil.fetchLocation(id)
+    LocationAPIUtil.fetchLocation(id)
         .then(location => dispatch(receiveLocation(location))
-        ).catch(err => (dispatch(receiveErrors(err.response.data))
-    ))
+        // ).catch(err => (dispatch(receiveErrors(err.response.data))
+    )
 );
 
 export const createLocation = (location) => dispatch => (
-    APIUtil.createLocation(location)
+    LocationAPIUtil.createLocation(location)
         .then(location => dispatch(addLocation(location))
         ).catch(err => (dispatch(receiveErrors(err.response.data))
     ))
 );
 
 export const editLocation = location => dispatch => (
-    APIUtil.editLocation(location)
+    LocationAPIUtil.editLocation(location)
         .then(location => dispatch(updateLocation(location))
         ).catch(err => (dispatch(receiveErrors(err.response.data))
     ))
 );
 
 export const deleteLocation = id => dispatch => (
-    APIUtil.deleteLocation(id)
+    LocationAPIUtil.deleteLocation(id)
         .then(location => dispatch(removeLocation(location))
         ).catch(err => (dispatch(receiveErrors(err.response.data))
     ))

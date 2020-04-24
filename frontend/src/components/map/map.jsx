@@ -2,174 +2,224 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MarkerManager from '../../util/marker_manager';
 import {withRouter} from 'react-router-dom';
-import './map.css'
-
-// const options = {
-//     center : { lat:40.712776, lng:-74.005974},
-//     zoom: 15,
-// }
+// import {GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
+import './map.css';
+import mapStyles from '../mapStyles';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
+require('dotenv').config();
 
 
 
 class Map extends React.Component {
     constructor(props){
         super(props);
-        
-        // this.initMap = this.initMap.bind(this);
-        this.map = null;
-        // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-    // this.searchAutoComplete = this.searchAutoComplete.bind(this)
-    // this.searchUpdate = this.searchUpdate.bind(this);
-    // this.updateCenter = this.updateCenter.bind(this);
+        this.initMap = this.initMap.bind(this);
     }
 
     componentDidMount() {
-        this.renderMap();
+        this.props.fetchAllLocations()
+        .then(() => this.renderMap());
     }
 
     renderMap() {
-        loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyCkLiuUnbBfwpYMMEGN8lfswBVUlGDoFdw&libraries=places&callback=initMap")
+        loadScript(`https://maps.googleapis.com/maps/api/js?key=AIzaSyCkLiuUnbBfwpYMMEGN8lfswBVUlGDoFdw&libraries=places&callback=initMap`)
         window.initMap = this.initMap;
+    }
+
+    componentDidUpdate() {
+        this.renderMap();
     }
     
     initMap() {
+        let newMarkers = [];
+        let bounds = new window.google.maps.LatLngBounds();
+        
+        let myLatLng = { lat: 40.736263, lng: -73.993806}
         const options = {
-            zoom: 16,
-            center: {lat: 40.736263, lng: -73.993806}
+            zoom: 11,
+            center: myLatLng,
+            styles: mapStyles,
         }
-        this.map = new window.google.maps.Map(document.getElementById('map'), options);
+        let map = new window.google.maps.Map(document.getElementById('map'), options);
+        
+        var infoWindow = new window.google.maps.InfoWindow();
+
+        let markers = [];
+
+        // function createMarkers() {
+            // let markers = [];
+            // // debugger;
+            Object.values(this.props.locations).forEach( location => {
+                // debugger;
+                // let marker = new window.google.maps.Marker({
+                let marker = {
+                    coords: { lat: location.lat, lng: location.lng},
+                    iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                    content: `${location.name}`
+                };
+                markers.push(marker);
+            });
+
+            // debugger
+            // $("button").click(function() {
+            //     $("#toggleDetails").removeClass("active");
+            // });
+        
+            for (let i = 0; i < markers.length; i++) {
+                var data = markers[i];
+                
+                let myLatlng = new window.google.maps.LatLng(data.coords.lat, data.coords.lng)
+                // Add marker
+
+                
+                var newMarker = new window.google.maps.Marker({
+                    id: i,
+                    position: myLatlng,
+                    map:map,
+                    icon:data.iconImage,
+                    animation: window.google.maps.Animation.DROP
+                });
+                // debugger;
+                
+                (function (marker, data) {
+                    let newPath = `location/${data.content}`
+                    // debugger;
+                    window.google.maps.event.addListener(marker, "mouseover", function (e) {
+                        infoWindow.setContent(`<a href="#/${newPath}" style= 'width:200px; min-height:40px; text-align:center; font-weight: bold; vertical-align: middle;background-color: rgb(57, 136, 136); color:white'; cursor:pointer>`
+                        +  data.content + `</div>`);
+                        infoWindow.open(map, marker);
+                    })
+                    map.addListener('center_changed', function () {
+                        // 3 seconds after the center of the map has changed, pan back to the
+                        // marker.
+                        // map.setCenter(marker.getPosition())
+                    //     window.setTimeout(function () {
+                            (marker.getPosition());
+                    //     }, 5000);
+                });
+                        marker.addListener('click', function () {
+                            map.setZoom(13);
+                            map.setCenter(marker.getPosition())
+                        })
+
+                    // newMarker.addListener('click', toggleBounce);
+                }) (newMarker, data);
+
+                // map.addListener('center_changed', function () {
+                //     // 3 seconds after the center of the map has changed, pan back to the
+                //     // marker.
+                //     window.setTimeout(function () {
+                //         map.panTo(marker.getPosition());
+                //     }, 5000);
+                // });
+
+                // marker.addListener('click', function () {
+                //     map.setZoom(13);
+                //     map.setCenter(marker.getPosition())
+                // })
+
+                
+                
+                // let newPath = "/locations/"+props.content;
+        // if (props.content) {
+            // var infoWindow = new window.google.maps.InfoWindow({
+
+                // content: props.content
+
+                // content: `<a href="#/${newPath}">${props.content}</a>` 
+
+
+                // window.google.maps.event.addListener(newMarker, 'click', function (newMarker, i) {
+                //     if ($('#info-container').css('display') == 'block') {
+                //         $('#info-container').css('display', 'none');
+                //     } else {
+                //         $('#info-container').css('display','block');
+                //     }
+                // });
+                
+                // function toggleBounce() {
+                //     if (newMarker.getAnimation() !== null) {
+                //         newMarker.setAnimation(null);
+                //     } else {
+                //         newMarker.setAnimation(window.google.maps.Animation.BOUNCE);
+                //     }
+                // }
+
+                // (function (marker, data) {
+                //     window.google.maps.event.addListener(marker, "click", function(e) {
+                //         return function () {
+                //             var result = "<button>close</button><p>"+ data.content + "</p><p>" + e.latitude+"</p><p>" + e.longitude +"</p>";
+                //             // $("#toggleDetails").html(result);
+                //             // $("#toggleDetails").addClass("active");
+                //         }
+                //     })(markers[i], data)
+                // });
+
+            }      
+            
+            // $('button').live('click', function() {
+            //     $("#toggleDetails").removeClass("active");
+            //     return false;
+            // })
+
+        // Check content
+        // let newPath = "/locations/"+props.content;
+        // if (props.content) {
+            // var infoWindow = new window.google.maps.InfoWindow({
+                
+                // content: props.content
+                
+                // content: `<a href="#/${newPath}">${props.content}</a>`   
+                // content: <Link to={newPath}
+                //             className="location-name"
+                //             key={props.content}>
+                //             {props.content}
+                // </Link>
+            // });     
+
+
+        // function showInfo(props) {
+        //     let infoPane = document.getElementById('info-pane');
+        //     if (infoPane.classList.containers("open")) {
+        //         infoPane.classList.remove("open");
+        //     }
+            
+        //     while (infoPane.lastChild) {
+        //         infoPane.removeChilde(infoPane.lastChild);
+        //     }
+
+        //     if (props.photo != null) {
+        //         let photo = document.createElement('img');
+        //         // photo.classList.add(props.photo)
+        //         photo.src = props.photo;
+        //         infoPane.appendChild(photo);
+        //     }
+        // }
     }
-
-    // componentDidMount() {
-    //     // this.initMap()
-    //     this.map = new google.maps.Map(this.refs.map, options);
-    //     this.registerListeners();
-    //     this.setCurrentPosition(map);
-    //     this.MarkerManager.updateMarkers(this.props.locations);
-    //     this.searchAutoComplete();
-    // }
-
-    updateCenter(e) {
-        e.preventDefault();
-        const searchInput = document.getElementById('search-input');
-        this.geocoder.geocode({ 'address': this.state.location }, results => {
-            //google library to provide geometric data.
-            this.setState({city: results[0].formatted_address});
-            this.map.setCenter(results[0].geometry.location);
-            //set map distance view;
-            this.map.setZoom(13);
-        })
-    }
-
-    // setCurrentPosition(map) {
-    //     let pos;
-    //     if (navigator.geoloction) {
-    //         navigator.geolocation.getCurrentPosition(
-    //             position => {
-    //                 pos = {
-    //                     lat: position.coords.latitude,
-    //                     lng: position.coords.longitude
-    //                 };
-    //                 map.setCenter(pos)
-    //             }
-    //         )
-    //     }
-    // }
-
-    // searchAutoComplete() {
-    //     let searchinput = document.getElementById('search-input');
-    //     this.autoComplete = new google.maps.places.Autocomplete(searchInput);
-    //     this.autoComplete.addListener('place_change', this.searchUpdate);
-    // }
-
-    // searchUpdate() {
-    //     let palce = this.autoComplete.getPlace();
-    //     if (place.geometry) {
-    //         this.setState({location: place.formatted_address});
-    //     } else {
-    //         const searchInput = document.getElementById('search-input');
-    //         searchInput.value = '';
-    //         alert('Address Not Found')
-    //     }
-    // }
-
-    // initMap() {
-    //     const options = {
-    //         center : { lat:40.712776, lng:-74.005974},
-    //         zoom: 15,
-    //     }
-
-    //     let map = new google.maps.Map(this.refs.map, options);
-    //     this.setCurrentPosition(map);
-    //     this.dirRend.setMap(map)
-    //     this.map = map;
-
-    //     this.searchAutoComplete();
-    //     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-    //     this.MarkerManager.updateMarkers(this.props.fishingLocations);
-    // }
-
-    // componentDidUpdate() {
-    //     this.MarkerManager.updateMarkers(this.props.locations);
-    // }
-
-    // handleMarkerClick(location) {
-    //     this.props.history.push(`locations/${location.id}`)
-    // }
-
-
-
-    // registerListeners() {
-    //     google.maps.event.addListener(this.map, 'idle', () => {
-    //         const latLngBounds = this.map.getBounds();
-    //         const northCorner = {
-    //             lat: latLngBounds.getNorthEast().lat(),
-    //             lng: latLngBounds.getNorthEast().lng()
-    //         };
-    //         const southCorner = {
-    //             lat: latLngBounds.getSouthWest().lat(),
-    //             lng: latLngBounds.getSouthWest().lat(),
-    //         };
-    //         const bounds = {
-    //             northCorner,
-    //             southCorner
-    //         };
-    //         this.props.updateFilter('bounds', bounds);
-    //     });
-    // }
-
 
 
     render() {
+        // debugger;
         return (
             <>
-                <div id="map"></div>
-            </>
-            // <div id="map-container">
-            //     <form id="search-bar" onSubmit={this.updateCenter}>
-            //         <label id="search-label">Choose a map location
-            //                         <div>
-            //                 <input
-            //                     type="search"
-            //                     className="search-form-input"
-            //                     id="search-input"
-            //                     value={this.state.location}
-            //                     onChange={this.update('location')}
-            //                     placeholder="Address"
-            //                 />
-            //                 <button
-            //                     type="submit"
-            //                     className="location-search">SEARCH</button>
-            //             </div>
-            //         </label>
-            //     </form>
-            //     <div id="map-container" className="google-map" ref="map">
+                {/* <GoogleMap /> */}
+                {/* <button onClick="showPanel()">{this.state} </button> */}
 
-            //     </div>
-            // </div>
+                {/* <div id="info-pane"> */}
+                    {/* <div id="info-photo"></div>
+                    <div id="info-name">{}</div>
+                    <div id="info-coord"></div> */}
+
+                {/* </div> */}
+                <div id="map"></div>
+
+
+            </>
         )
     }
 }
+
 
 function loadScript(url) {
     const index = window.document.getElementsByTagName('script')[0];
