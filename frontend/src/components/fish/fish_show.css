@@ -1,93 +1,47 @@
-/* .fish-show-page {
-    display: flex;
-    max-width: 1320px;
-    width: 100vw;
-}
-
-
-
-#fish-show-text {
-    display:flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 40vw;
-    max-height: 600px;
-    width: 100vw;
-    height: 80vh;
-    background-color: rgb(57, 136, 136);
-    color: white;
-    align-content: center;
-    align-items: center;
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-
-#fish-show-name {
-    top: 10px;
-    font-size: 40px;
-    font-weight: bold;
-}
-
-#fish-show-info span {
-    font-size: 15px;
-    align-content: center;
-    margin: auto;
-    color: white;
-    text-shadow: 2px 2px 2px 2px rgba(0 0 0 0.4);
-    border-bottom: 2px solid white;
-}
-
-#fish-show-info {
-    padding: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    min-width: 300px;
-    max-width: 80%;
-    display: block;
-    border: 2px solid lightgrey;
-    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
-}
-
-#fish-show-title {
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-#fish-show-title span {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-} */
-
 .fish-gmaps-section{
-    width: 45%;
+    width: 500px;
     height: 100%;
+    flex-grow: 0;
 }
 
 .fish-gmaps-section > #map{
-    border: 3px solid lightskyblue;
-
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
 }
 
-.fish-gmaps-section > #map{
+.fish-gmaps-section > #map{ 
     object-fit: fill;
 }
 
 .fish-show-page{
     width: 60vw;
-    height: 65vh;
+    /* height: 65vh; */
     display: flex;
+    justify-content: space-between;
     margin: 0 auto;
+    /* border: 2px solid orange; */
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
 }
 
-.fish-show-text{
-    width: 55%;
-    height: 100%;
-    /* border: 1px solid lightblue; */
-    /* display: flex; */
-    /* justify-content: flex-end; */
+.fish-gmaps-section > div {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.fish-show-size > div {
+    margin-bottom: 5px;
+}
+
+.fish-show-text {
+    display: flex;
+    flex-direction: column;
+    /* width: 50%; */
+    /* border: 2px solid red; */
+    padding-right: 10px;
 }
 
 .fish-show-name{
@@ -101,8 +55,7 @@
 
 .fish-show-info{
     float: right;
-    width: 45%;
-    /* border: 1px solid green; */
+    /* border: 2px solid green; */
 }
 
 .fish-show-info span{
@@ -112,8 +65,22 @@
 
 .fish-show-img{
     width: 54%;
-    border: 2px solid cornflowerblue;
+    height: 70%;
+    /* border: 2px solid cornflowerblue; */
     height: 50%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.fish-index-page.main-page-container > div {
+    top: 60px;
+}
+
+.fish-show-img > img {
+    /* width: 100%; */
+    height: 250px;
+    border-radius: 5px;
 }
 
 .fish-show-desc-box{
