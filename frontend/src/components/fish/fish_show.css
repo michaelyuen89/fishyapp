@@ -73,8 +73,15 @@
     box-sizing: border-box;
 }
 
+.show-fish-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
 .fish-index-page.main-page-container > div {
     top: 60px;
+    /* left: 20vw; */
 }
 
 .fish-show-img > img {
@@ -163,21 +170,25 @@ footer li {
 }
 
 .fish-photo-upload-form{
-    border: 2px solid blue;
-    width: 60%;
-    margin: 20px auto;
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .show-fish-select-container{
-    border: 6px solid lightskyblue;
+    border: 1px solid lightskyblue;
+    background-color: rgba(57, 136, 136, 0.1);
+
+    border-radius: 3px;
     width: 60%;
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 20px;
+    margin-top: 40px;
+    /* box-sizing: border-box; */
 }
 
 .show-fish-photo-title{
-    text-align: center;
+    /* text-align: center; */
     font-size: 25px;
     color: cornflowerblue;
     font-weight: 600;
@@ -189,17 +200,26 @@ footer li {
     max-width: 100%;
     display: flex;
     overflow: scroll;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
-    border: 2px solid lightskyblue;
+    /* border: 2px solid lightskyblue; */
 }
 
 .show-fish-photo{
-    width: 50%;
+    width: 48%;
+    height: 250px;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .show-fish-photo > img{
     width: 100%;
     height: 100%;
     /* max-height: 50%; */
+}
+
+.add-photo {
+    font-weight: bold;
+    padding-right: 10px;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import FishUploadContainer from './fish_photo_upload_container';
 
 class FishShowsPhotos extends React.Component {
   constructor(props) {
@@ -67,11 +68,16 @@ class FishShowsPhotos extends React.Component {
             <input type="submit" value="See Photos of Fish" />
           </form> */}
         </div>
-        <div className="show-fish-photo-title">{this.targetFish.name} Photos!</div>
+        <div className="show-fish-top">
+          <div className="show-fish-photo-title">
+            {this.targetFish.name} Photos!
+          </div>
+          <FishUploadContainer />
+        </div>
         <div className="show-selected-fish-index">
           {this.props.fishPhotos.length > 0 ? (
             <>
-              {this.props.fishPhotos.map(fishPhoto => (
+              {this.props.fishPhotos.map((fishPhoto) => (
                 <div key={fishPhoto._id} className="show-fish-photo">
                   <img src={fishPhoto.fileLink} />
                 </div>

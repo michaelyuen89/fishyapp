@@ -67,41 +67,14 @@ class FishPhotoUpload extends React.Component {
     });
     return (
       <div className="fish-photo-upload-form">
-      <h1>Upload a {this.targetFish.name} picture!</h1>
         <div>
           <form action="" onSubmit={this.handleUpload}>
-            {/* <select
-              value={
-                this.state.fishId ? this.state.fishId : "default-select-value"
-              }
-              onChange={this.handleChange("fishId")}
-            >
-              <option
-                key={"default-select"}
-                value="default-select-value"
-                disabled
-              >
-                >>(Select a Fish).>
-              </option>
-              {this.props.fishes.map(fish => (
-                <option key={`${fish._id}`} value={fish._id}>
-                  {fish.name}
-                </option>
-              ))}
-            </select> */}
-            <br />
+            <span className="add-photo">Add a Photo!</span>
             <input
               type="file"
               onChange={this.handleFile}
               ref={this.fileInput}
             />
-            <br />
-            {/* <input
-              type="text"
-              value={this.state.description}
-              placeholder="Filename"
-              onChange={this.handleChange("description")}
-            /> */}
             <input type="submit" value="Upload" />
           </form>
         </div>

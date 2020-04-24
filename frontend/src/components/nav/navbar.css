@@ -19,6 +19,11 @@
     padding-left: 50px;
 }
 
+.navbar-logo > span.fishydex-logo {
+    font-size: 36px;
+    font-weight: bold;
+}
+
 .nav-links {
     display: flex;
     justify-content: space-between;

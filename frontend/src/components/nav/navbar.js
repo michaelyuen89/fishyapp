@@ -54,7 +54,7 @@ class NavBar extends React.Component {
             <div className="navbar-logo">
               <i className="fas fa-fish"></i>
               <Link to={"/"}>
-                <span>FishyDex</span>
+                <span className="fishydex-logo">FishyDex</span>
               </Link>
             </div>
             {this.getLinks()}

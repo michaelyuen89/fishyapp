@@ -101,16 +101,9 @@ class FishShow extends React.Component {
                   {" "}
                   Github:
                   <li>
-                    <a href="https://github.com/Sunghan11">Elijah Nam</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/emikyu">Emily Wu</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/joexiao97">Joe Xiao</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/michaelyuen89">Michael Yuen</a>
+                    <a href="https://github.com/michaelyuen89/fishyapp">
+                      fishyapp
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -127,59 +120,59 @@ class FishShow extends React.Component {
           <div className="fish-index-page main-page-container">
             <img src={splashImage} />
             <div>
-            <div className="fish-show-name ">{this.targetFish.name}</div>
-            <div className="fish-show-page ">
-              <div className="fish-left">
-                <div className="fish-show-text">
-                  <div className="fish-show-img">
-                    <img
-                      src={
-                        this.props.fishPhotos[0]
-                          ? this.props.fishPhotos[0].fileLink
-                          : noFish
-                      }
-                      alt={this.targetFish.name}
-                    />
-                  </div>
-                  <div className="fish-show-info">
-                    <div className="fish-show-size">
-                      <div>
-                        <span>Min Legal Size: </span>
-                        {this.targetFish.minLegalSize
-                          ? this.targetFish.minLegalSize
-                          : "None"}
-                      </div>
-                      <div>
-                        <span>Max Legal Size: </span>
-                        {this.targetFish.maxLegalSize
-                          ? this.targetFish.maxLegalSize
-                          : "None"}
-                      </div>
-                      <div>
-                        <span>Max Allowed Amount: </span>
-                        {this.targetFish.maxPossession
-                          ? this.targetFish.maxPossession
-                          : "None"}
-                      </div>
-                      <div>
-                        <span>Description: </span>
-                        {this.targetFish.description
-                          ? this.targetFish.description
-                          : "No description provided"}
+              <div className="fish-show-name ">{this.targetFish.name}</div>
+              <div className="fish-show-page ">
+                <div className="fish-left">
+                  <div className="fish-show-text">
+                    <div className="fish-show-img">
+                      <img
+                        src={
+                          this.props.fishPhotos[0]
+                            ? this.props.fishPhotos[0].fileLink
+                            : noFish
+                        }
+                        alt={this.targetFish.name}
+                      />
+                    </div>
+                    <div className="fish-show-info">
+                      <div className="fish-show-size">
+                        <div>
+                          <span>Min Legal Size: </span>
+                          {this.targetFish.minLegalSize
+                            ? this.targetFish.minLegalSize
+                            : "None"}
+                        </div>
+                        <div>
+                          <span>Max Legal Size: </span>
+                          {this.targetFish.maxLegalSize
+                            ? this.targetFish.maxLegalSize
+                            : "None"}
+                        </div>
+                        <div>
+                          <span>Max Allowed Amount: </span>
+                          {this.targetFish.maxPossession
+                            ? this.targetFish.maxPossession
+                            : "None"}
+                        </div>
+                        <div>
+                          <span>Description: </span>
+                          {this.targetFish.description
+                            ? this.targetFish.description
+                            : "No description provided"}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div className="fish-gmaps-section">
+                  <div>Places to fish for {this.targetFish.name}:</div>
+                  <Map />
                 </div>
-              <div className="fish-gmaps-section">
-                <div>Places to fish for {this.targetFish.name}:</div>
-                <Map />
-              </div>
               </div>
             </div>
           </div>
           <FishShowsPhotosContainer />
-          <FishUploadContainer />
+          {/* <FishUploadContainer /> */}
 
           <footer>
             <div className="footer-links">
@@ -188,16 +181,9 @@ class FishShow extends React.Component {
                   {" "}
                   Github:
                   <li>
-                    <a href="https://github.com/Sunghan11">Elijah Nam</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/emikyu">Emily Wu</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/joexiao97">Joe Xiao</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/michaelyuen89">Michael Yuen</a>
+                    <a href="https://github.com/michaelyuen89/fishyapp">
+                      fishyapp
+                    </a>
                   </li>
                 </ul>
               </div>
