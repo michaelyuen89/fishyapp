@@ -31,7 +31,7 @@ class FishShow extends React.Component {
           this.props.fishes.forEach(fish => {
             // debugger
             if (
-              fish.name.toLowerCase().replace(" ", "-") ===
+              fish.name.toLowerCase().split(" ").join("-") ===
               this.props.match.params.fish_name
             ) {
               debugger
@@ -50,7 +50,7 @@ class FishShow extends React.Component {
           this.props.fishes.forEach(fish => {
             // debugger
             if (
-              fish.name.toLowerCase().replace(" ", "-") ===
+              fish.name.toLowerCase().split(" ").join("-") ===
               this.props.match.params.fish_name
             ) {
               debugger

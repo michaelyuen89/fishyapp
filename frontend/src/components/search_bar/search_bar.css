@@ -1,5 +1,8 @@
 div.search-bar {
     position: relative;
+    background: rgb(197, 219, 218);
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .search-bar .search-suggestions {
@@ -9,10 +12,9 @@ div.search-bar {
     background: white;
     color: black;
     width: 100%;
-    border: 1px solid rgba(216, 191, 216, 0.5);
+    border: 1px solid lightskyblue;
     border-radius: 3px;
     box-sizing: border-box;
-    box-shadow: 4px 4px 4px -4px rgb(105, 105, 105), 0px 4px 8px rgb(105, 105, 105), -4px 4px 4px -4px rgb(105, 105, 105);
     font-size: 14px;
 }
 
@@ -22,7 +24,7 @@ div.search-bar {
 
 
 .search-suggestions li:hover {
-    background-color: #faf3fa;
+    background-color: rgb(210, 228, 228);
     cursor: pointer;
 }
 
@@ -80,4 +82,21 @@ section.newsfeed-content.search-results {
 .no-search-results {
     font-size: 14px;
     padding-top: 12px;
+}
+
+.search-bar input {
+    min-width: 200px;
+    font-size: 16px;
+    color: teal;
+    /* font-weight: bold; */
+}
+
+.search-bar button {
+    background: teal;
+    color: white;
+    height: 24px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    margin-left: 10px;
 }

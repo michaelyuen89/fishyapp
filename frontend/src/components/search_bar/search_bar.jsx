@@ -16,6 +16,7 @@ class SearchBar extends React.Component {
 
         this.updateInput = this.updateInput.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -41,6 +42,13 @@ class SearchBar extends React.Component {
         } else {
             if(this.state.dropdown) this.setState({dropdown: false});
         }
+    }
+
+    handleClick(e) {
+            e.preventDefault();
+
+            this.props.history.push(`/fishes/${this.state.inputVal.trim().toLowerCase().split(" ").join("-")}`);
+            this.setState({ dropdown: false, inputVal: this.state.inputVal.trim() });
     }
 
     handleKeyDown(e) {
@@ -73,8 +81,8 @@ class SearchBar extends React.Component {
 
         return (
             <div className="search-bar">
-                <input type="text" placeholder="Search" value={this.state.inputVal} onChange={this.updateInput} onKeyDown={this.handleKeyDown}/>
-                <button className="button"><i className="fa fa-search search-bar" aria-hidden="true"></i></button>
+                <input type="text" placeholder="Search for a fish <.(<<)<" value={this.state.inputVal} onChange={this.updateInput} onKeyDown={this.handleKeyDown}/>
+                <button className="button" onClick={this.handleClick}><i className="fa fa-search search-bar" aria-hidden="true"></i></button>
                 {
                     this.state.dropdown ?
                     (<div className="search-suggestions">

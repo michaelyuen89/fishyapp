@@ -42,7 +42,7 @@ class FishIndex extends React.Component {
                       className="fish-name-li"
                       to={`/fishes/${fish.name
                         .toLowerCase()
-                        .replace(" ", "-")}`}
+                        .split(" ").join("-")}`}
                     >
                       {fish.name}
                     </Link>
