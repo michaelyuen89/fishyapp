@@ -30,7 +30,7 @@
 
 .main-page-container > div {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     top: 200px;
     left: 20vw;
 }
