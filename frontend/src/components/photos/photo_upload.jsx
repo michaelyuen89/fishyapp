@@ -46,6 +46,7 @@ class PhotoUpload extends React.Component {
                 });
                 debugger
                 this.fileInput.current.value = null;
+                window.location.reload(false);
             }
         );
     }
