@@ -1,0 +1,102 @@
+div.search-bar {
+    position: relative;
+    background: rgb(197, 219, 218);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.search-bar .search-suggestions {
+    position: absolute;
+    top: 24px;
+    z-index: 12;
+    background: white;
+    color: black;
+    width: 100%;
+    border: 1px solid lightskyblue;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.search-suggestions li {
+    padding: 6px 10px;
+}
+
+
+.search-suggestions li:hover {
+    background-color: rgb(210, 228, 228);
+    cursor: pointer;
+}
+
+
+.search-suggestions ul {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+section.newsfeed-content.search-results {
+    padding: 12px 12px 0px 12px;
+    background-color: white;
+    border: 1px solid thistle;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    min-height: 0px;
+}
+
+.search-result-header {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.search-result-item {
+    padding: 12px;
+    border-top: 1px solid rgb(240, 212, 240);
+}
+
+.search-result-body > div:first-child {
+    border-top: none;
+}
+
+.search-result-item .friend-photo {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+}
+
+.search-result-item .friend-photo img {
+    min-width: 75px;
+}
+
+.search-result-item .friend-name-container {
+    justify-content: flex-start;
+}
+
+.search-result-item .friend-button > .friend-request-button-container {
+    position: relative;
+    right: 0px;
+    top: -75px;
+}
+
+.no-search-results {
+    font-size: 14px;
+    padding-top: 12px;
+}
+
+.search-bar input {
+    min-width: 200px;
+    font-size: 16px;
+    color: teal;
+    /* font-weight: bold; */
+}
+
+.search-bar button {
+    background: teal;
+    color: white;
+    height: 24px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    margin-left: 10px;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './navbar.css'
+import SearchBarContainer from '../search_bar/search_bar_container';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -29,7 +30,9 @@ class NavBar extends React.Component {
                             <Link to={'/new_fish'}>Add a fish</Link>
                         </div>
                     </div>
+                    <SearchBarContainer />
                     <div className="nav-links-right">
+            <Link to={'/profile'}>Welcome, {this.props.currentUser.username}!</Link>
                         <a onClick={this.logoutUser}>Logout</a>
                     </div>
                 </div>

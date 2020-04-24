@@ -36,6 +36,11 @@
     margin-bottom: 5px;
 }
 
+.fish-left {
+    width: 50%;
+}
+
+
 .fish-show-text {
     display: flex;
     flex-direction: column;
