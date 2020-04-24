@@ -25,14 +25,14 @@ const FishSchema = new Schema({
     required: false,
     min: 0,
   },
-  // locationIds: {
-  //     type: Array,
-  //     default: []
-  // },
   locationIds: {
-    type: [Schema.Types.ObjectId],
-    ref: "locations"
+      type: Array,
+      default: []
   },
+  // locationIds: {
+  //   type: [Schema.Types.ObjectId],
+  //   ref: "locations"
+  // },
   date: {
     type: Date,
     default: Date.now,
