@@ -10,7 +10,15 @@ let documentSchema = new Schema(
         document_id: { type: Number, default: 0 },
         description: { type: String },
         fileLink: { type: String },
-        s3_key: { type: String }
+        s3_key: { type: String },
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: 'users'
+        },
+        fish: {
+            type: Schema.Types.ObjectId,
+            ref: 'fish'
+        }
     },
     {
         // createdAt,updatedAt fields are automatically added into records

@@ -58,6 +58,15 @@
     width: 25%;
 }
 
+.fish-name-li{
+    width: 25%;
+    color: blue;
+}
+
+.fish-name:hover{
+    cursor: pointer;
+}
+
 .fish-description{
     width: 30%;
 }

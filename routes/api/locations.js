@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 
 const Location = require('../../models/Location');
+const Fish = require('../../models/Fish');
 const validateLocationInput = require('../../validation/locations');
 
 // index - pulling all locations
@@ -21,6 +22,21 @@ router.get('/:id', (req, res) => {
         .then(location => res.json(location))
         .catch(err =>
             res.status(404).json({ nolocationfound: 'No location found with that ID'}))
+});
+
+// special index - pulling all locations for specific fish
+router.get("/fish/:fish_id", (req, res) => {
+  Fish.findOne({ _id: req.params.fish_id })
+    .then((fish) => {
+      Location.find({ _id: { $in: fish.locationIds } })
+        .then((locations) => res.json(locations))
+        .catch((err) =>
+          res.status(404).json({ nolocationsfound: "No locations found" })
+        );
+    })
+    .catch((err) =>
+      res.status(404).json({ nofishfound: "No fish found" })
+    );
 });
 
 // create location via protected route
@@ -72,7 +88,15 @@ router.put('/:id',
                     // debugger
                     return res.status(404).json(errors[key]);
                 } else if (req.body[key]) {
-                    location[key] = req.body[key];
+                    if (key === "fishIds") {
+                        if (req.body[key] instanceof Array) {
+                            location[key] = req.body[key];
+                        } else {
+                            location[key] = location[key].concat(req.body[key]);
+                        }
+                    } else {
+                        location[key] = req.body[key];
+                    }
                 }
             }
             // debugger

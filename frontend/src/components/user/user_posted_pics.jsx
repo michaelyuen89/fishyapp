@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 class UserPostedPics extends React.Component {
     constructor(props) {
@@ -28,7 +29,7 @@ class UserPostedPics extends React.Component {
     render() {
         return (
             <div className="fish-select-container">
-                <div className="fish-select-form">
+                {/* <div className="fish-select-form">
                     <h1>Fish Photo Select Form</h1>
                     <form action="" onSubmit={this.handleSubmit}>
                         <select
@@ -66,16 +67,20 @@ class UserPostedPics extends React.Component {
                     ) : (
                             <div>No photos found.</div>
                         )}
-                </div>
+                </div> */}
                 <h1>Photos of Fish you Uploaded</h1>
-                <div className="selected-user-index">
+                <div className="selected-user-index"> 
                     {this.props.userPhotos.length > 0 ? (
                         <>
-                            {this.props.userPhotos.map((fishPhoto) => (
+                            {this.props.userPhotos.map((fishPhoto) => {
+                                // debugger
+                                return (
                                 <div key={fishPhoto._id} className="fish-photo">
+                                    {/* <Link to=""> */}
                                     <img src={fishPhoto.fileLink} />
+                                    {/* </Link> */}
                                 </div>
-                            ))}
+                            )})}
                         </>
                     ) : (
                             <div>No photos found.</div>

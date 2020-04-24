@@ -4,9 +4,10 @@ import UserPage from "./user_page";
 
 
 const msp = state => {
-    // return {
-    //    user: state.entities.user
-    // }
+    // debugger
+    return {
+       currentUser: state.session.user
+    }
 };
 
 const mdp = dispatch => {
@@ -15,4 +16,4 @@ const mdp = dispatch => {
     }
 };
 
-export default connect(null, mdp)(UserPage);
+export default connect(msp, mdp)(UserPage);
