@@ -15,7 +15,7 @@ export const receiveUserPhotos = photos => ({
     photos
 });
 
-export const receiveFishPhotoso = photos => ({
+export const receiveFishPhotos = photos => ({
     type: RECEIVE_FISH_PHOTOS,
     photos
 });
@@ -39,7 +39,7 @@ export const fetchUserPhotos = id => dispatch => (
 
 export const fetchFishPhotos = id => dispatch => (
     PhotoAPIUtil.fetchFishPhotos(id)
-        .then(photos => receiveFishPhotoso(photos))
+        .then(photos => dispatch(receiveFishPhotos(photos)))
         .then(err =>console.log(err))
 );
 

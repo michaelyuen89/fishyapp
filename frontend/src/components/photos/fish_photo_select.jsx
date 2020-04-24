@@ -7,10 +7,12 @@ class FishPhotoSelect extends React.Component {
     this.state = {
         fishId: ""
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAllFishes();
+    this.props.fetchUserPhotos(this.props.currentUser.id);
   }
 
   handleChange(field) {
@@ -18,14 +20,16 @@ class FishPhotoSelect extends React.Component {
   }
 
   handleSubmit(e) {
-
+    e.preventDefault();
+    this.props.fetchFishPhotos(this.state.fishId)
+        .then(() => this.setState({fishId: ""}))
   }
 
   render() {
     return (
-      <div className="fish-select-form">
-        <h1>Fish Photo Select Form</h1>
-        <div>
+      <div className="fish-select-container">
+        <div className="fish-select-form">
+          <h1>Fish Photo Select Form</h1>
           <form action="" onSubmit={this.handleSubmit}>
             <select
               value={
@@ -46,21 +50,36 @@ class FishPhotoSelect extends React.Component {
                 </option>
               ))}
             </select>
-            <br />
-            <input
-              type="file"
-              onChange={this.handleFile}
-              ref={this.fileInput}
-            />
-            <br />
-            <input
-              type="text"
-              value={this.state.description}
-              placeholder="Filename"
-              onChange={this.handleChange("description")}
-            />
-            <input type="submit" value="Upload" />
+            <input type="submit" value="See Photos of Fish" />
           </form>
+        </div>
+        <h1>Photos of Selected Fish</h1>
+        <div className="selected-fish-index">
+          {this.props.fishPhotos.length > 0 ? (
+            <>
+              {this.props.fishPhotos.map((fishPhoto) => (
+                <div key={fishPhoto._id} className="fish-photo">
+                  <img src={fishPhoto.fileLink} />
+                </div>
+              ))}
+            </>
+          ) : (
+            <div>No photos found.</div>
+          )}
+        </div>
+        <h1>Photos of Fish you Uploaded</h1>
+        <div className="selected-user-index">
+          {this.props.userPhotos.length > 0 ? (
+            <>
+              {this.props.userPhotos.map((fishPhoto) => (
+                <div key={fishPhoto._id} className="fish-photo">
+                  <img src={fishPhoto.fileLink} />
+                </div>
+              ))}
+            </>
+          ) : (
+            <div>No photos found.</div>
+          )}
         </div>
       </div>
     );

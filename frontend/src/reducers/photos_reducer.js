@@ -17,10 +17,12 @@ const PhotosReducer = (state = { all: {}, user: {}, fish: {}, new: undefined}, a
             });
             return newState;
         case RECEIVE_FISH_PHOTOS:
+            debugger
             newState.fish = {}
             action.photos.data.forEach(photo => {
                 newState.fish[photo._id] = photo;
             });
+            debugger
             return newState;
         case RECEIVE_NEW_PHOTO:
             newState.new = action.photo.data;
