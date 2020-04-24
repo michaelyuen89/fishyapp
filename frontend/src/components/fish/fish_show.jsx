@@ -100,7 +100,7 @@ class FishShow extends React.Component {
   render() {
       Object.values(this.props.fishes).forEach(fish => {
         if (
-          fish.name.toLowerCase().replace(" ", "-") ===
+          fish.name.toLowerCase().split(" ").join("-") ===
           this.props.match.params.fish_name
         ) {
           this.targetFish = fish;

@@ -11,6 +11,7 @@ class LocationMain extends React.Component {
 
         return (
             <div id="loc-main-main">
+                {/* <span>Click on Location Name</span> */}
                 <div id="loc-main-map">
                     <MapContainer/>
                 </div>
