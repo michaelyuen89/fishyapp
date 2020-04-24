@@ -1,0 +1,26 @@
+.photo-upload-form, .fish-select-container {
+    border: 2px solid blue;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.fish-select-container {
+    border: 2px solid green;
+}
+
+.selected-fish-index, .selected-user-index {
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border: 2px solid red;
+}
+
+.fish-photo {
+    max-width: 50%;
+}
+
+.fish-photo > img {
+    max-width: 100%;
+}
