@@ -19,10 +19,11 @@ class MainPage extends React.Component {
                     <div className="footer-links">
                         <div className="footer-github">
                             <ul> Github:
-                                <li><a href="https://github.com/Sunghan11">Elijah Nam</a></li>
+                                <li><a href="https://github.com/michaelyuen89/fishyapp">fishyapp</a></li>
+                                {/* <li><a href="https://github.com/Sunghan11">Elijah Nam</a></li>
                                 <li><a href="https://github.com/emikyu">Emily Wu</a></li>
                                 <li><a href="https://github.com/joexiao97">Joe Xiao</a></li>
-                                <li><a href="https://github.com/michaelyuen89">Michael Yuen</a></li>
+                                <li><a href="https://github.com/michaelyuen89">Michael Yuen</a></li> */}
                             </ul>
                         </div>
                     </div>

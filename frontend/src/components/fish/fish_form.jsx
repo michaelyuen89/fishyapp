@@ -121,7 +121,8 @@ class FishForm extends React.Component {
                   <ul>
                     {" "}
                     Github:
-                    <li>
+                    <li><a href="https://github.com/michaelyuen89/fishyapp">fishyapp</a></li>
+                    {/* <li>
                       <a href="https://github.com/Sunghan11">Elijah Nam</a>
                     </li>
                     <li>
@@ -134,7 +135,7 @@ class FishForm extends React.Component {
                       <a href="https://github.com/michaelyuen89">
                         Michael Yuen
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
