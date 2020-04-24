@@ -15,7 +15,7 @@
 }
 
 .all-fish-title{
-    z-index: 200;
+    z-index: 10;
     display: flex;
     position: relative;
     justify-content: center;

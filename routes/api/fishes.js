@@ -89,18 +89,19 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateFishInput(req.body);
-
+    debugger
     Fish.findOne({ _id: req.params.id })
       .then((fish) => {
         for (let key in req.body) {
           if (fish[key] === undefined) {
+            debugger
             return res
               .status(404)
               .json({ invalidfield: "Invalid field being updated! " });
           } else if (req.body[key] && errors[key]) {
             return res.status(404).json(errors[key]);
           } else if (req.body[key]) {
-            // debugger
+            debugger
             if (key === "locationIds") {
               if (req.body[key] instanceof Array) {
                 fish[key] = req.body[key];
@@ -111,7 +112,7 @@ router.put(
                   .then((location) => {
                     fish[key] = fish[key].concat(req.body[key]);
                     location.fishIds = location.fishIds.concat(req.params.id);
-                    location.save().then(() => fish.save()).then(fish => res.json(fish));
+                    location.save().then((location) => fish.save()).then(fish => res.json(fish));
                   })
                   .catch((err) => res.status(404).json({ nofishfound: "No location found with that ID" }));
               }
