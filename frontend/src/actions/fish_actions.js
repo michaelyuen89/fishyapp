@@ -48,7 +48,7 @@ export const createFish = fish => dispatch => (
     FishAPIUtil.createFish(fish)
         .then(fish => dispatch(addFish(fish))
         ).catch(err => {
-            debugger
+            // debugger
             dispatch(receiveErrors(err.response.data))
         })
 );

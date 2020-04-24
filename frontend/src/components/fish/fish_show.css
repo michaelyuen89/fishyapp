@@ -76,9 +76,10 @@
 }
 
 .fish-show-page{
-    width: 100vw;
-    height: 85vh;
+    width: 60vw;
+    height: 65vh;
     display: flex;
+    margin: 0 auto;
 }
 
 .fish-show-text{
@@ -92,7 +93,8 @@
 .fish-show-name{
     display: flex;
     justify-content: center;
-    font-size: 30px;
+    font-size: 40px;
+    margin-bottom: 10px;
     font-weight: 888;
     color: cornflowerblue;
 }
@@ -104,7 +106,8 @@
 }
 
 .fish-show-info span{
-    color: red;
+    color: black;
+    font-weight: bold;
 }
 
 .fish-show-img{
@@ -190,4 +193,46 @@ footer li {
     font-weight: 888;
     color: cornflowerblue;
     /* position: fixed; */
+}
+
+.fish-photo-upload-form{
+    border: 2px solid blue;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.show-fish-select-container{
+    border: 6px solid lightskyblue;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.show-fish-photo-title{
+    text-align: center;
+    font-size: 25px;
+    color: cornflowerblue;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.show-selected-fish-index{
+    height: 500px;
+    max-width: 100%;
+    display: flex;
+    overflow: scroll;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border: 2px solid lightskyblue;
+}
+
+.show-fish-photo{
+    width: 50%;
+}
+
+.show-fish-photo > img{
+    width: 100%;
+    height: 100%;
+    /* max-height: 50%; */
 }
