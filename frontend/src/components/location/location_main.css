@@ -1,0 +1,8 @@
+#loc-main-map {
+    max-width: 980px;
+    max-height: 700px;
+    margin: auto;
+    border: 5px solid rgb(0, 172, 143);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.4);
+}

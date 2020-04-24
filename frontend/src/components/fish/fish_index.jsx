@@ -2,7 +2,7 @@ import React from 'react';
 import NavbarContainer from "../nav/navbar_container";
 import splashImage from "../main/splash_image.jpg";
 import "./fish_index.css";
-import Map from '../map/map';
+import MapContainer from '../map/map_container';
 import { Link } from "react-router-dom";
 
 class FishIndex extends React.Component {
@@ -60,7 +60,7 @@ class FishIndex extends React.Component {
               fish!{" "}
             </div>
             <div className="fish-index-map">
-              <Map />
+              <MapContainer />
             </div>
             <footer>
               <div className="footer-links">

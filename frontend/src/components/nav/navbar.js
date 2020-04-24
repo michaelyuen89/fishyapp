@@ -29,6 +29,9 @@ class NavBar extends React.Component {
                         <div>
                             <Link to={'/new_fish'}>Add a fish</Link>
                         </div>
+                        <div>
+                            <Link to={'/location'}>Location</Link>
+                        </div>
                     </div>
                     <SearchBarContainer />
                     <div className="nav-links-right">
