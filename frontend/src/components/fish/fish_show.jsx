@@ -43,6 +43,26 @@ class FishShow extends React.Component {
     })
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.fish_name !== this.props.match.params.fish_name) {
+      this.props.fetchAllFishes()
+        .then((e) => {
+          this.props.fishes.forEach(fish => {
+            // debugger
+            if (
+              fish.name.toLowerCase().replace(" ", "-") ===
+              this.props.match.params.fish_name
+            ) {
+              debugger
+              this.props.fetchFishPhotos(fish._id).then(() => {
+                console.log(this)
+              })
+            }
+          });
+        })
+      }
+  }
+
   // handleFile(e) {
   //   e.preventDefault();
   //   this.setState({
