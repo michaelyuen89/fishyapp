@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MarkerManager from '../../util/marker_manager';
 import {withRouter} from 'react-router-dom';
+// import {GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
 import './map.css';
+import mapStyles from '../mapStyles';
 import axios from 'axios';
 require('dotenv').config();
 
@@ -35,7 +37,8 @@ class Map extends React.Component {
         
         const options = {
             zoom: 10,
-            center: {lat: 40.736263, lng: -73.993806}
+            center: {lat: 40.736263, lng: -73.993806},
+            styles: mapStyles,
         }
         let map = new window.google.maps.Map(document.getElementById('map'), options);
         
