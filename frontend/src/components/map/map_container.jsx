@@ -3,7 +3,7 @@ import Map from './map';
 import {fetchAllLocations} from '../../actions/location_actions';
 
 const msp = state => {
-    debugger;
+    // debugger;
     // locations: state.entities.locations,
     // currentUser: state.entities.users[state.session.id],
     // errors: state.errors.locations,
@@ -14,7 +14,7 @@ const msp = state => {
 }
 
 const mdp = dispatch => {
-    debugger;
+    // debugger;
     return {
         fetchAllLocations: () => dispatch(fetchAllLocations())
     }

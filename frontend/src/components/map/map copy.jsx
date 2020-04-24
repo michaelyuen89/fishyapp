@@ -29,7 +29,7 @@ require('dotenv').config();
 class Map extends React.Component {
     constructor(props){
         super(props);
-        debugger;
+        // debugger;
         // this.state = {
         //     locations: []
         // }
@@ -48,7 +48,7 @@ class Map extends React.Component {
         this.props.fetchAllLocations()
         .then(() => this.renderMap());
         // this.getLocations();
-        debugger;
+        // debugger;
     }
 
     // getLocations = () => {
@@ -211,9 +211,9 @@ class Map extends React.Component {
 
         // function createMarkers() {
             // let markers = [];
-            debugger;
+            // debugger;
             Object.values(this.props.locations).forEach( location => {
-                debugger;
+                // debugger;
                 // let marker = new window.google.maps.Marker({
                 let marker = {
                     coords: { lat: location.lat, lng: location.lng},
@@ -235,7 +235,7 @@ class Map extends React.Component {
 
         // Add Marker Function
         function addMarker(props) {
-            debugger;
+            // debugger;
             var marker = new window.google.maps.Marker({
                 // position: props.coords,
                 position: {lat:props.coords.lat, lng:props.coords.lng},
@@ -244,7 +244,7 @@ class Map extends React.Component {
                 draggable: true,
                 icon: props.iconImage
             });
-            debugger;
+            // debugger;
 
             // Check for customicon
             if (props.iconImage) {

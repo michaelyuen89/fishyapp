@@ -16,13 +16,13 @@ const LocationsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch(action.type) {
         case RECEIVE_ALL_LOCATIONS:
-            debugger;
+            // debugger;
             action.locations.data.forEach(location => {
                 newState[location._id] = location
             });
             return newState;
         case RECEIVE_LOCATION:
-            debugger;
+            // debugger;
             newState.allLocations[action.location._id] = action.location.data;
             // newState.currentLocation = action.location;
             return newState;
