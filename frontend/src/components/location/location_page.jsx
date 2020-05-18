@@ -122,6 +122,7 @@ class LocationPage extends React.Component {
                             <div id="loc-pg-title">
                                 {this.props.match.params.content}
                             </div>
+                            <br/>
                             <div id="loc-pg-fish-index">
                                 <span>Fishes in {this.props.match.params.content}</span>
                                 {locationFishes.map(fish => (
@@ -130,8 +131,8 @@ class LocationPage extends React.Component {
                                             className="fish-name-list"
                                             to={`/fishes/${fish.toLowerCase()
                                             .split(" ").join("-")}`}>
-                                                {fish}
-                                            </Link>
+                                            <i class="fas fa-anchor"></i> {fish}
+                                        </Link>
                                 </div>
                                 ))}
                             </div>
