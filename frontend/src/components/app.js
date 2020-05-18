@@ -29,7 +29,7 @@ const App = () => (
             <ProtectedRoute exact path="/fishes" component={FishIndexContainer} />
             <ProtectedRoute exact path="/fishes/:fish_name" component={FishShowContainer} />
             <ProtectedRoute exact path="/new_photo" component={PhotoExample} />
-            <ProtectedRoute exact path="/profile" component={UserPageContainer} />
+            <ProtectedRoute exact path="/album" component={UserPageContainer} />
             {/* <Route path="/" component={MainPage} /> */}
             <Route exact path="/" component={MainPage} />
             {/* <Route path="/" component={MainPage} /> */}

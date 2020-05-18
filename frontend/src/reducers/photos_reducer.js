@@ -1,4 +1,4 @@
-import { RECEIVE_PHOTOS, RECEIVE_USER_PHOTOS, RECEIVE_FISH_PHOTOS, RECEIVE_NEW_PHOTO } from '../actions/document_actions';
+import { RECEIVE_PHOTOS, RECEIVE_USER_PHOTOS, RECEIVE_FISH_PHOTOS, RECEIVE_NEW_PHOTO, REMOVE_PHOTO } from '../actions/document_actions';
 
 const PhotosReducer = (state = { all: {}, user: {}, fish: {}, new: undefined}, action) => {
     Object.freeze(state);
@@ -26,6 +26,11 @@ const PhotosReducer = (state = { all: {}, user: {}, fish: {}, new: undefined}, a
             return newState;
         case RECEIVE_NEW_PHOTO:
             newState.new = action.photo.data;
+            return newState;
+        case REMOVE_PHOTO:
+            if (newState.all[action.photoId]) delete newState.all[action.photoId];
+            if (newState.fish[action.photoId]) delete newState.fish[action.photoId];
+            if (newState.user[action.photoId]) delete newState.user[action.photoId];
             return newState;
         default:
             return state;

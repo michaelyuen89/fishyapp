@@ -11,7 +11,7 @@ class UserPage extends React.Component {
         return (
             <div className="user-show-page-cont">
                 <img src={backgroundImage} alt="background" />
-                <div className="user-show-info-cont">
+                {/* FOR FUTURE FEATURE DEVELOPMENT <div className="user-show-info-cont">
                     <div className="user-show-info">
                         <div className="user-show-username">{this.props.currentUser.username}</div>
                         <br/>
@@ -35,7 +35,7 @@ class UserPage extends React.Component {
                         </div>
                         <input className="comment-button" type="submit" value="Add Comment"/>
                     </div>
-                </div>
+                </div> */}
                 <div className="user-posted-pictures">
                     <UserPostedPicsContainer />
                 </div>

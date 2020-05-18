@@ -13,6 +13,7 @@ const fileUploadRoutes = require("./routes/api/fileUploadRoutes");
 const users = require("./routes/api/users");
 const locations = require("./routes/api/locations");
 const fishes = require("./routes/api/fishes");
+const userProfiles = require("./routes/api/userProfiles");
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -42,6 +43,7 @@ app.use("/api/users", users);
 app.use("/api/fishes", fishes);
 app.use("/api/locations", locations);
 app.use("/api/document", fileUploadRoutes);
+app.use("/api/user_profiles", userProfiles);
 
 
 const port = process.env.PORT || 5000;

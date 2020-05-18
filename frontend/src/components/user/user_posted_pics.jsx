@@ -8,7 +8,8 @@ class UserPostedPics extends React.Component {
         this.state = {
             fishId: ""
         }
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentDidMount() {
@@ -16,20 +17,15 @@ class UserPostedPics extends React.Component {
         this.props.fetchUserPhotos(this.props.currentUser.id);
     }
 
-    handleChange(field) {
-        return (e) => this.setState({ [field]: e.target.value });
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.fetchFishPhotos(this.state.fishId)
-            .then(() => this.setState({ fishId: "" }))
+    handleDelete(photoId) {
+        return (e) => this.props.deletePhoto(photoId);
     }
 
     render() {
+        if (!this.props.fishes) return null;
         return (
-            <div className="fish-select-container">
-                {/* <div className="fish-select-form">
+          <div className="fish-select-container">
+            {/* <div className="fish-select-form">
                     <h1>Fish Photo Select Form</h1>
                     <form action="" onSubmit={this.handleSubmit}>
                         <select
@@ -68,25 +64,53 @@ class UserPostedPics extends React.Component {
                             <div>No photos found.</div>
                         )}
                 </div> */}
-                <h1>Photos of Fish you Uploaded</h1>
-                <div className="selected-user-index"> 
-                    {this.props.userPhotos.length > 0 ? (
-                        <>
-                            {this.props.userPhotos.map((fishPhoto) => {
-                                // debugger
-                                return (
-                                <div key={fishPhoto._id} className="fish-photo">
-                                    {/* <Link to=""> */}
-                                    <img src={fishPhoto.fileLink} />
-                                    {/* </Link> */}
-                                </div>
-                            )})}
-                        </>
-                    ) : (
-                            <div>No photos found.</div>
-                        )}
-                </div>
+            <h1>
+              Hello, {this.props.currentUser.username}. Here are the photos of catches uploaded by you!
+            </h1><br/>
+            <div className="selected-user-index">
+              {this.props.userPhotos.length > 0 ? (
+                <>
+                  {this.props.userPhotos.map((fishPhoto) => {
+                    debugger
+                    return (
+                      <div key={fishPhoto._id} className="fish-photo album">
+                        <div className="photo-info">
+                          <div>
+                            <Link
+                              to={`/fishes/${this.props.fishes[
+                                fishPhoto.fish
+                              ].name
+                                .toLowerCase()
+                                .split(" ")
+                                .join("-")}`}
+                            >
+                              {this.props.fishes[fishPhoto.fish].name}
+                            </Link>
+                            {` caught on ${fishPhoto.createdAt.split("T")[0]}`}
+                          </div>
+                          <div>
+                              <button onClick={this.handleDelete(fishPhoto._id)}>
+                                  Delete Photo
+                              </button>
+                          </div>
+                        </div>
+                        <Link
+                          to={`/fishes/${this.props.fishes[fishPhoto.fish].name
+                            .toLowerCase()
+                            .split(" ")
+                            .join("-")}`}
+                        >
+                          <img src={fishPhoto.fileLink} />
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </>
+              ) : (
+                <div>No photos found.</div>
+              )}
             </div>
+          </div>
         );
     }
 }
