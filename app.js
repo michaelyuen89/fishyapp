@@ -1,9 +1,9 @@
 require("dotenv").config();
 
 const express = require("express");
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
-app.use(cors());
+// app.use(cors());
 const db = require("./config/keys").mongoURI;
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
