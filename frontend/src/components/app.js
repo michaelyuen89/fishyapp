@@ -29,13 +29,13 @@ const App = () => (
             <ProtectedRoute exact path="/fishes" component={FishIndexContainer} />
             <ProtectedRoute exact path="/fishes/:fish_name" component={FishShowContainer} />
             <ProtectedRoute exact path="/new_photo" component={PhotoExample} />
-            <ProtectedRoute exact to="/profile" component={UserPageContainer} />
+            <ProtectedRoute exact path="/profile" component={UserPageContainer} />
             {/* <Route path="/" component={MainPage} /> */}
             <Route exact path="/" component={MainPage} />
             {/* <Route path="/" component={MainPage} /> */}
             <ProtectedRoute exact path="/location" component={LocationMainContainer} />
             <ProtectedRoute exact path ="/location/:content" component={LocationPageContainer} />
-            {/* <ProtectedRoute exact path="/map" component={MapContainer} /> */}
+            <ProtectedRoute exact path="/map" component={MapContainer} />
         </Switch>
     </div>
 );

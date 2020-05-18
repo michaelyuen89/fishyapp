@@ -1,7 +1,7 @@
 .fish-gmaps-section{
     width: 500px;
     height: 100%;
-    flex-grow: 0;
+    /* flex-grow: 0; */
 }
 
 .fish-gmaps-section > #map{
