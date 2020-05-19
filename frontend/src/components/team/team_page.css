@@ -1,0 +1,12 @@
+.team-page-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: solid 1px black;
+}
+
+.team-member {
+    height: 50%;
+    border: solid 1px blue;
+}

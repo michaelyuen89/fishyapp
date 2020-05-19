@@ -1,5 +1,6 @@
 import React from 'react';
 import splashImage from './splash_image.jpg';
+import { Link } from 'react-router-dom';
 import './main.css';
 
 class MainPage extends React.Component {
@@ -24,6 +25,9 @@ class MainPage extends React.Component {
                                 <li><a href="https://github.com/emikyu">Emily Wu</a></li>
                                 <li><a href="https://github.com/joexiao97">Joe Xiao</a></li>
                                 <li><a href="https://github.com/michaelyuen89">Michael Yuen</a></li> */}
+                            </ul>
+                            <ul>
+                                <Link to="/team_page">Team Members</Link>
                             </ul>
                         </div>
                     </div>
