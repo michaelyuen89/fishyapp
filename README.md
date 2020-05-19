@@ -23,6 +23,7 @@
 
 * User authentication
 * Add fishes to the database (name, description, and fish legalities)
+![](read_me/add_fish_feature.gif)
 * Upload photos of fish that were caught
 ![](read_me/upload_feature.gif)
 
