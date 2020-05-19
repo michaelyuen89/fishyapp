@@ -3,6 +3,11 @@ import {withRouter , Link} from 'react-router-dom';
 import './login_form.css';
 import signupImage from "./signup_background.png";
 
+const demoUser = {
+  email: "demo@example.com",
+  password: "password"
+}
+
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
@@ -15,6 +20,7 @@ class LoginForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.loginDemo = this.loginDemo.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -42,6 +48,10 @@ class LoginForm extends React.Component {
         this.props.login(user);
     }
 
+    loginDemo(e) {
+      this.props.login(demoUser);
+    }
+
     close_modal(){
         var modal = document.getElementById("login-modal");
         modal.style.display = "none";
@@ -66,8 +76,8 @@ class LoginForm extends React.Component {
           <div className="outer-container" id="login-modal">
             <img src={signupImage} id="signup-background-img" alt="login"/>
             <div className="login-form-container">
-              <form onSubmit={this.handleSubmit}>
                 <div className="login-form">
+              <form onSubmit={this.handleSubmit}>
                   <br />
                   <h2 id="signup-header">Login</h2>
                   <br />
@@ -98,7 +108,11 @@ class LoginForm extends React.Component {
                   </div>
                   <div id="submit-button">
                     <input type="submit" value="Log in" />
-                  </div>
+                  </div><br/>
+              </form>
+                  <button className="submit-button" onClick={this.loginDemo}>
+                    Demo user
+                  </button>
                   <br />
                   <br />
                   <div id="switch-login-signup">
@@ -108,7 +122,6 @@ class LoginForm extends React.Component {
                     </Link>
                   </div>
                 </div>
-              </form>
             </div>
           </div>
         );

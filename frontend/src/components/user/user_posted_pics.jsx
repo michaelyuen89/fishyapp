@@ -22,7 +22,7 @@ class UserPostedPics extends React.Component {
     }
 
     render() {
-        if (!this.props.fishes) return null;
+        if (!this.props.fishes || !this.props.userPhotos) return null;
         return (
           <div className="fish-select-container">
             {/* <div className="fish-select-form">
