@@ -200,25 +200,6 @@ class FishShow extends React.Component {
           </div>
           <FishShowsPhotosContainer />
           {/* <FishUploadContainer /> */}
-
-          <footer>
-            <div className="footer-links">
-              <div className="footer-github">
-                <ul>
-                  {" "}
-                  Github:
-                  <li>
-                    <a href="https://github.com/michaelyuen89/fishyapp">
-                      fishyapp
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="footer-copyright">
-              Copyright &copy; 2020 Fishers
-            </div>
-          </footer>
         </>
       );
     }
