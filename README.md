@@ -21,8 +21,11 @@
 
 <h2>Features</h2>
 
+<h3>Fishes</h3>
+
 * User authentication
-* Create and update fish show pages
-* Upload fish photos
+* Upload photos of fish that were caught
+![](read_me/upload_feature.gif)
+
 * Create and update fishing locations
 * User comments
