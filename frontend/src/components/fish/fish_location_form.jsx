@@ -35,7 +35,7 @@ class FishLocationForm extends React.Component {
         this.props.editLocation({id: this.state.locationId, fishIds: this.props.locations[this.state.locationId].fishIds.concat(this.state.fishId)})
           .then(() => {
               this.setState({ locationId: "" });
-                // window.location.reload(false);
+                window.location.reload(false);
           })
       );
   }
