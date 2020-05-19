@@ -74,7 +74,7 @@ class UserPostedPics extends React.Component {
                     debugger
                     return (
                       <div key={fishPhoto._id} className="fish-photo album">
-                        <div className="photo-info">
+                        <div className="photo-info has-photos">
                           <div>
                             <Link
                               to={`/fishes/${this.props.fishes[
@@ -107,7 +107,9 @@ class UserPostedPics extends React.Component {
                   })}
                 </>
               ) : (
-                <div>No photos found.</div>
+                <div className="photo-info">
+                    No photos found. Show off your catches by adding photos for fish&nbsp;<Link to={`/fishes`}>here</Link>.
+                </div>
               )}
             </div>
           </div>

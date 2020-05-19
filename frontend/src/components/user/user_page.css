@@ -159,7 +159,7 @@
     overflow: hidden;
 }
 
-.photo-info {
+.photo-info.has-photos {
     display: flex;
     justify-content: space-between;
     padding: 5px 10px;
