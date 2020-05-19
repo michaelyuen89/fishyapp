@@ -4,7 +4,7 @@ import './login_form.css';
 import signupImage from "./signup_background.png";
 
 const demoUser = {
-  email: "demo@example.com",
+  email: "seabassmaster@gmail.com",
   password: "password"
 }
 
