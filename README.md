@@ -32,7 +32,7 @@
 
 <h2>Snippets</h2>
 
-* Search Function
+* Implemented a search function for fish look up
 
 ```javascript
     componentDidMount() {
