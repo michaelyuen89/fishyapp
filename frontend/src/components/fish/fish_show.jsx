@@ -115,24 +115,6 @@ class FishShow extends React.Component {
               <img className="no-fish-pic" src={noFish} alt="No fish picture" />
             </div>
           </div>
-          <footer>
-            <div className="footer-links">
-              <div className="footer-github">
-                <ul>
-                  {" "}
-                  Github:
-                  <li>
-                    <a href="https://github.com/michaelyuen89/fishyapp">
-                      fishyapp
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="footer-copyright">
-              Copyright &copy; 2020 Fishers
-            </div>
-          </footer>
         </>
       );
     } else {
