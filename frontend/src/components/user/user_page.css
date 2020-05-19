@@ -64,6 +64,9 @@
     color: rgb(14, 83, 83);
 
 }
+.user-show-comments{
+    color: rgb(14, 83, 83);
+}
 
 .user-show-comments-cont {
     width: 100%;
@@ -110,7 +113,12 @@
     width: 90%;
     height: 90%;
     overflow: scroll;
-    
+}
+
+.user-posted-pictures > .fish-select-container > h1 {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgb(47, 110, 110);
 }
 
 .user-posted-pictures::-webkit-scrollbar {
