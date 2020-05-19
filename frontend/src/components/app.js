@@ -16,6 +16,7 @@ import PhotoExample from './photos/photo_example';
 import MapContainer from './map/map_container';
 import LocationPageContainer from './location/location_page_container';
 import LocationMainContainer from './location/location_main_container';
+import TeamPage from './team/team_page';
 
 
 const App = () => (
@@ -30,6 +31,7 @@ const App = () => (
             <ProtectedRoute exact path="/fishes/:fish_name" component={FishShowContainer} />
             <ProtectedRoute exact path="/new_photo" component={PhotoExample} />
             <ProtectedRoute exact path="/profile" component={UserPageContainer} />
+            <Route exact path="/team_page" component={TeamPage} />
             {/* <Route path="/" component={MainPage} /> */}
             <Route exact path="/" component={MainPage} />
             {/* <Route path="/" component={MainPage} /> */}
