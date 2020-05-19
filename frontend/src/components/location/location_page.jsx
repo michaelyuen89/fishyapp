@@ -11,13 +11,18 @@ class LocationPage extends React.Component {
         // debugger;
         super(props);
 
+        this.targetLocation = {}
+
         this.fishes = [];
     }
 
     componentDidMount() {
         this.props.fetchAllFishes();
-        this.props.fetchAllLocations();
-       
+        this.props.fetchAllLocations();  
+    }
+
+    componentDidUpdate(prevProps) {
+
     }
 
     
@@ -63,6 +68,7 @@ class LocationPage extends React.Component {
         locations.forEach((location) => {
             if (location.name === this.props.location.pathname.slice(10)) {
                 locationFishIds = location.fishIds;
+                {this.targetLocation = location}
             }
         })
 
@@ -108,7 +114,11 @@ class LocationPage extends React.Component {
                                 </div>
                                 ))}
                             </div>
-                            <LocationFishFormContainer />
+                            <LocationFishFormContainer 
+                                key="location-fish-form-container"
+                                locationId={this.targetLocation._id}
+                                location={this.targetLocation}
+                                />
                         </div>
                     </div>
                 </div>
