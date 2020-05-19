@@ -4,6 +4,7 @@ import "./location_page.css";
 import { Link } from 'react-router-dom';
 // import fishingPic from '../../../public/fishingPic'
 // import NavbarContainer from '../navbar_container';
+import LocationFishFormContainer from './location_fish_form_container';
 
 class LocationPage extends React.Component {
     constructor(props) {
@@ -74,35 +75,6 @@ class LocationPage extends React.Component {
             }
         })
 
-        debugger;
-
-
-        // const fishes = Object.values(this.props.fishes)
-
-        // fishes.forEach((fish) => {
-        //     if (fish.name.toLowerCase().replace(" ", "-") === this.props.match.params.fish_name) {
-        //         locationFishes.push(fish);
-        //     }
-        // debugger;
-        // const locs = Object.values(this.props.locations);
-
-        // locs.forEach(loc => {
-        //     debugger;
-        //     if(loc.name === this.props.match.params.content) {
-        //         this.fishes = loc.fishIds;
-        //         // debugger;
-        //     }
-        // })
-
-        // if (this.fishes === locs.fishIds)
-
-        // Object.values(this.props.locations).forEach((location) => {
-        //     debugger;
-        //     if(location.name === this.props.match.params.content) {
-        //         this.fishes.push(location.fishIds)
-        //     }
-        // })
-
         return (
             <>  
                 <div id="loc-pg">
@@ -131,11 +103,12 @@ class LocationPage extends React.Component {
                                             className="fish-name-list"
                                             to={`/fishes/${fish.toLowerCase()
                                             .split(" ").join("-")}`}>
-                                            <i class="fas fa-anchor"></i> {fish}
+                                            <i className="fas fa-anchor"></i> {fish}
                                         </Link>
                                 </div>
                                 ))}
                             </div>
+                            <LocationFishFormContainer />
                         </div>
                     </div>
                 </div>

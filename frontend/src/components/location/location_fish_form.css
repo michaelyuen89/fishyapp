@@ -1,0 +1,21 @@
+.location-fish-form-container {
+    background-color: rgba(57, 136, 136, 0.2);
+    border-radius: 5px;
+    border: 1px solid teal;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.location-fish-form-container input[type="submit"] {
+    border-radius: 5px;
+    background: teal;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border: none;
+    margin-left: 10px;
+}
+
+#location-fish-form-add-fish {
+    color: blue;
+}
