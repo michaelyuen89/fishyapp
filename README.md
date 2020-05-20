@@ -107,3 +107,18 @@
             </div>
         );
     }
+```
+
+
+<h2>Maintainers</h2>
+<a href="https://github.com/Sunghan11">Elijah Nam</a>
+</br>
+<a href="https://github.com/emikyu">Emily Wu</a>
+</br>
+<a href="https://github.com/joexiao97">Joe Xiao</a>
+</br>
+<a href="https://github.com/michaelyuen89">Michael Yuen</a>
+
+
+<h2>Design Docs</h2>
+<a href="https://github.com/michaelyuen89/fishyapp/wiki/Functionality-and-MVP"> Design Docs </a>
