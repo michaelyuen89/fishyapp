@@ -84,7 +84,7 @@
     background-color: white;
 }
 
-.login-form input{
+.login-form input, .login-form button{
     margin: auto;
     display: flex;
     align-items: center;
@@ -113,6 +113,28 @@
 #submit-button input:hover {
     background-color: rgb(48, 114, 114);
     color: whitesmoke;
+}
+
+
+button.submit-button {
+    color: rgb(57, 136, 136);
+    border: 2px solid  rgb(57, 136, 136);
+    background:  rgba(57, 136, 136, 0.2);
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    height: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+button.submit-button:hover {
+    background:  rgba(57, 136, 136, 0.5);
+}
+
+button.submit-button:focus {
+    outline: none;
 }
 
 

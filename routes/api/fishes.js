@@ -101,28 +101,30 @@ router.put(
           } else if (req.body[key] && errors[key]) {
             return res.status(404).json(errors[key]);
           } else if (req.body[key]) {
-            debugger
-            if (key === "locationIds") {
-              if (req.body[key] instanceof Array) {
-                fish[key] = req.body[key];
-                fish.save().then((fish) => res.json(fish));
-              }
-              else {
-                Location.findOne({ _id: req.body[key] })
-                  .then((location) => {
-                    fish[key] = fish[key].concat(req.body[key]);
-                    location.fishIds = location.fishIds.concat(req.params.id);
-                    location.save().then((location) => fish.save()).then(fish => res.json(fish));
-                  })
-                  .catch((err) => res.status(404).json({ nofishfound: "No location found with that ID" }));
-              }
-            }
-            else {
-              fish[key] = req.body[key];
-              fish.save().then((fish) => res.json(fish));
-            }
+            fish[key] = req.body[key];
+            // debugger
+            // if (key === "locationIds") {
+            //   if (req.body[key] instanceof Array) {
+            //     fish[key] = req.body[key];
+            //     fish.save().then((fish) => res.json(fish));
+            //   }
+            //   else {
+            //     Location.findOne({ _id: req.body[key] })
+            //       .then((location) => {
+            //         fish[key] = fish[key].concat(req.body[key]);
+            //         location.fishIds = location.fishIds.concat(req.params.id);
+            //         location.save().then((location) => fish.save()).then(fish => res.json(fish));
+            //       })
+            //       .catch((err) => res.status(404).json({ nofishfound: "No location found with that ID" }));
+            //   }
+            // }
+            // else {
+            //   fish[key] = req.body[key];
+            //   fish.save().then((fish) => res.json(fish));
+            // }
           }
         }
+        fish.save().then(fish => res.json(fish));
       })
       .catch((err) =>
         res

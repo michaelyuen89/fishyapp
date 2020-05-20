@@ -21,7 +21,7 @@ class NavBar extends React.Component {
                 <div className="nav-links logged-in">
                     <div className="nav-links-left">
                         <div>
-                            <Link to={'/profile'}>Profile</Link>
+                            <Link to={'/album'}>Album</Link>
                         </div>
                         <div>
                             <Link to={'/fishes'}>All fish</Link>
@@ -35,7 +35,7 @@ class NavBar extends React.Component {
                     </div>
                     <SearchBarContainer />
                     <div className="nav-links-right">
-            <Link to={'/profile'}>Welcome, {this.props.currentUser.username}!</Link>
+            {/* <Link to={'/profile'}>Welcome, {this.props.currentUser.username}!</Link> */}
                         <a onClick={this.logoutUser}>Logout</a>
                     </div>
                 </div>

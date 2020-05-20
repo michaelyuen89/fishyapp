@@ -4,6 +4,7 @@ export const RECEIVE_PHOTOS = "RECEIVE_PHOTOS";
 export const RECEIVE_USER_PHOTOS = 'RECEIVE_USER_PHOTOS';
 export const RECEIVE_FISH_PHOTOS = "RECEIVE_FISH_PHOTOS";
 export const RECEIVE_NEW_PHOTO = "RECEIVE_NEW_PHOTO";
+export const REMOVE_PHOTO = "REMOVE_PHOTO";
 
 export const receivePhotos = photos => ({
     type: RECEIVE_PHOTOS,
@@ -24,6 +25,17 @@ export const receiveNewPhoto = photo => ({
     type: RECEIVE_NEW_PHOTO,
     photo
 });
+
+export const removePhoto = photoId => ({
+    type: REMOVE_PHOTO,
+    photoId
+});
+
+export const deletePhoto = (photoId) => (dispatch) => (
+    PhotoAPIUtil.deleteFishPhoto(photoId)
+        .then(() => dispatch(removePhoto(photoId)))
+        .catch((err) => console.log(err))
+);
 
 export const fetchPhotos = () => dispatch => (
     PhotoAPIUtil.fetchAllPhotos()

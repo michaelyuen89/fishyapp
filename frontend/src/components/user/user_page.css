@@ -144,8 +144,50 @@
     height: 300px;
 }
 
-.user-posted-pictures > .fish-select-container > .selected-user-index > .fish-photo > img {
+.selected-user-index > .fish-photo img {
     object-fit: fill;
     height: 100%;
     width: 100%;
+
+}
+
+.selected-user-index > .fish-photo.album {
+    border: 1px solid rgb(14, 83, 83);
+    border-radius: 5px;
+    margin: 10px;
+    max-width: 45%;
+    overflow: hidden;
+}
+
+.photo-info.has-photos {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background: rgba(255,255,255,0.7);
+}
+
+.photo-info a {
+    font-weight: bold;
+    color: rgb(14, 83, 83);
+}
+
+.photo-info a:hover {
+    text-decoration: underline;
+}
+
+.photo-info button {
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    background: teal;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.photo-info button:focus {
+    outline: none;
+}
+
+.photo-info button:hover {
+    cursor: pointer;
 }

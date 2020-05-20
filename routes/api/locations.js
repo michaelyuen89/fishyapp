@@ -88,15 +88,16 @@ router.put('/:id',
                     // debugger
                     return res.status(404).json(errors[key]);
                 } else if (req.body[key]) {
-                    if (key === "fishIds") {
-                        if (req.body[key] instanceof Array) {
-                            location[key] = req.body[key];
-                        } else {
-                            location[key] = location[key].concat(req.body[key]);
-                        }
-                    } else {
-                        location[key] = req.body[key];
-                    }
+                    // if (key === "fishIds") {
+                    //     if (req.body[key] instanceof Array) {
+                    //         location[key] = req.body[key];
+                    //     } else {
+                    //         location[key] = location[key].concat(req.body[key]);
+                    //     }
+                    // } else {
+                    //     location[key] = req.body[key];
+                    // }
+                    location[key] = req.body[key];
                 }
             }
             // debugger
