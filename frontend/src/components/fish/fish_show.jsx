@@ -35,9 +35,7 @@ class FishShow extends React.Component {
               this.props.match.params.fish_name
             ) {
               debugger
-              this.props.fetchFishPhotos(fish._id).then(() => {
-                console.log(this)
-              })
+              if(fish._id) this.props.fetchFishPhotos(fish._id);
             }
           });
     })
@@ -54,9 +52,7 @@ class FishShow extends React.Component {
               this.props.match.params.fish_name
             ) {
               debugger
-              this.props.fetchFishPhotos(fish._id).then(() => {
-                console.log(this)
-              })
+              if(fish._id) this.props.fetchFishPhotos(fish._id);
             }
           });
         })

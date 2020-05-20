@@ -52,7 +52,7 @@ export const fetchUserPhotos = id => dispatch => (
 export const fetchFishPhotos = id => dispatch => (
     PhotoAPIUtil.fetchFishPhotos(id)
         .then(photos => dispatch(receiveFishPhotos(photos)))
-        .then(err =>console.log(err))
+        .catch(err =>console.log(err))
 );
 
 export const uploadPhoto = data => dispatch => (
