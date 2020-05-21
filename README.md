@@ -39,60 +39,6 @@
 * Implemented a search function so Users can easily look up fishes
 
 ```javascript
-    componentDidMount() {
-        this.props.fetchAllFishes();
-        window.addEventListener('click', (e) => {
-            if (!e.target.matches('.search-suggestions') && this.state.dropdown) {
-                this.setState({dropdown: false});
-            }
-        })
-    }
-
-    updateInput(e) {
-        const inputVal = e.currentTarget.value;
-        this.setState({ inputVal });
-        if (inputVal.trim()) {
-            if (!this.state.dropdown) this.setState({dropdown: true});
-        } else {
-            if(this.state.dropdown) this.setState({dropdown: false});
-        }
-    }
-
-    handleClick(e) {
-            e.preventDefault();
-
-            this.props.history.push(`/fishes/${this.state.inputVal.trim().toLowerCase().split(" ").join("-")}`);
-            this.setState({ dropdown: false, inputVal: this.state.inputVal.trim() });
-    }
-
-    handleKeyDown(e) {
-        if (this.state.inputVal.trim() && e.key === 'Enter') {
-            e.preventDefault();
-
-            this.props.history.push(`/fishes/${this.state.inputVal.trim().toLowerCase().split(" ").join("-")}`);
-            this.setState({dropdown: false, inputVal: this.state.inputVal.trim()});
-        }
-    }
-
-    hideDropdown(name) {
-        return e => this.setState({dropdown: false, inputVal: name});
-    }
-
-    render() {
-        if (this.props.fishNames === null) return null;
-
-        const foundNames = [];
-        const that = this;
-        const names = this.props.fishNames;
-        names.forEach((name) => {
-            if (name === this.state.inputVal.trim()) return;
-            if (name.slice(0, that.state.inputVal.trim().length).toLowerCase() === that.state.inputVal.trim().toLowerCase()) foundNames.push(
-                <Link key={name} to={`/fishes/${name.toLowerCase().split(" ").join("-")}`}>
-                    <li key={name} onClick={this.hideDropdown(name)}>{name}</li>
-                </Link>
-            );
-        });
-
         return (
             <div className="search-bar">
                 <input type="text" placeholder="Search for a fish <.(<<)<" value={this.state.inputVal} onChange={this.updateInput} onKeyDown={this.handleKeyDown}/>
@@ -109,6 +55,49 @@
                 }
             </div>
         );
+    }
+```
+
+This function updates the state so that the current input is displayed in the search bar. It also shows the dropdown list of search suggestions if the user clicked into the search bar.
+
+```javascript
+updateInput(e) {
+        const inputVal = e.currentTarget.value;
+        this.setState({ inputVal });
+        if (inputVal.trim()) {
+            if (!this.state.dropdown) this.setState({dropdown: true});
+        } else {
+            if(this.state.dropdown) this.setState({dropdown: false});
+        }
+    }
+```
+
+The following snippet is for finding the subset of fish names that match what the user has typed so far - i.e. ones that start off with the same substring.
+```javascript
+names.forEach((name) => {
+            if (name === this.state.inputVal.trim()) return;
+            if (name.slice(0, that.state.inputVal.trim().length).toLowerCase() === that.state.inputVal.trim().toLowerCase()) foundNames.push(
+                <Link key={name} to={`/fishes/${name.toLowerCase().split(" ").join("-")}`}>
+                    <li key={name} onClick={this.hideDropdown(name)}>{name}</li>
+                </Link>
+            );
+        });
+```
+
+handleClick and handleKeyDown are event handlers for when the user wants to choose a particular search suggestion.
+
+```javascript
+handleClick(e) {
+            e.preventDefault();
+            this.props.history.push(`/fishes/${this.state.inputVal.trim().toLowerCase().split(" ").join("-")}`);
+            this.setState({ dropdown: false, inputVal: this.state.inputVal.trim() });
+    }
+    handleKeyDown(e) {
+        if (this.state.inputVal.trim() && e.key === 'Enter') {
+            e.preventDefault();
+            this.props.history.push(`/fishes/${this.state.inputVal.trim().toLowerCase().split(" ").join("-")}`);
+            this.setState({dropdown: false, inputVal: this.state.inputVal.trim()});
+        }
     }
 ```
 
