@@ -1,4 +1,4 @@
-<h1>Welcome to FishyDex</h1>
+<img width="289" alt="Screen Shot 2020-05-21 at 9 25 20 AM" src="https://user-images.githubusercontent.com/53235267/82563425-0ceb0900-9b45-11ea-9b60-ba6c8e673543.png">
 
 <p>A MERN stack web application geared toward fishing enthusiasts</p>
 
