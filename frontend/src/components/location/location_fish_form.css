@@ -19,3 +19,13 @@
 #location-fish-form-add-fish {
     color: blue;
 }
+
+#location-fish-form-add-new-fish a{
+    border: 1px solid green;
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 1px 5px 3px 5px;
+    font-size: 12px;
+}

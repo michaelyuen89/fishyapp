@@ -43,6 +43,7 @@ class LocationFishForm extends React.Component {
         debugger;
         if (Object.values(this.props.fishes).length === 0) return null;
         return (
+            <>
             <div className="fish-location-form-container">
                 {/* This is the fish location form FishId: {this.props.fishId} */}
                 <span>Fishes: </span>
@@ -79,6 +80,16 @@ class LocationFishForm extends React.Component {
                     <input type="submit" value="Add Fish to Location" />
                 </form>
             </div>
+            <br/>
+            <div id="location-fish-form-add-new-fish">
+                <span>Fish doesn't exist in database? 
+                    <br></br>
+                <Link to={`/new_fish`}>
+                        Click Here 
+                </Link>
+                    </span>
+            </div>
+            </>
         );
     }
 }
