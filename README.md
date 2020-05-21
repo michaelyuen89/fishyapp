@@ -26,6 +26,8 @@
 ![](read_me/add_fish_feature.gif)
 * Upload photos of fish that were caught
 ![](read_me/upload_feature.gif)
+* View and delete photos from album
+![](read_me/album_feature.gif)
 
 * Locations of popular fishing spots (with ability to zoom and add fishes to a specific location)
 * (placeholder - TBI)
