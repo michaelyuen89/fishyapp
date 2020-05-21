@@ -1,5 +1,6 @@
 import React from 'react';
 import MapContainer from '../map/map_container';
+import LocationMapContainer from './location_map_container';
 import "./location_page.css";
 import { Link } from 'react-router-dom';
 // import fishingPic from '../../../public/fishingPic'
@@ -11,6 +12,7 @@ class LocationPage extends React.Component {
         // debugger;
         super(props);
 
+        this.mapLocation = { lat: this.props.location.lat, lng: this.props.location.lng }
         this.targetLocation = {}
 
         this.fishes = [];
@@ -27,7 +29,7 @@ class LocationPage extends React.Component {
 
     
     render () {
-        // debugger;
+        debugger;
         let imageFile = <img src="fishingPic.jpg"/>
         if (this.props.match.params.content === "Weehawken Recreation Pier") {
             imageFile = <img src="weehawken-bright.jpg"/>
@@ -86,8 +88,11 @@ class LocationPage extends React.Component {
                 <div id="loc-pg">
                     <div id="loc-pg-top">
                         <div id="loc-pg-map">
-                            <MapContainer />
-                        </div>
+                           <LocationMapContainer 
+                                key="location-fish-map-container"
+                                location={this.targetLocation}
+                            />
+                        </div> 
                     </div>
                     <div id="loc-pg-right">
                         <div id="loc-pg-img">

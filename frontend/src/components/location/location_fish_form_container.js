@@ -4,7 +4,7 @@ import { editLocation, fetchAllLocations } from '../../actions/location_actions'
 import { editFish, fetchAllFishes } from '../../actions/fish_actions';
 
 const msp = (state, ownProps) => {
-    debugger;
+    // debugger;
     return {
         fishes: state.entities.fishes,
         // locations: state.entitites.locations,
