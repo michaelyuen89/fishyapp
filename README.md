@@ -36,7 +36,9 @@
 
 <h2>Snippets</h2>
 
-* Implemented a search function so Users can easily look up fishes
+* Implemented a search function so Users can easily look up fishes.
+
+The below renders the box with the current input, as well as the dropdown of search suggestions.
 
 ```javascript
         return (
