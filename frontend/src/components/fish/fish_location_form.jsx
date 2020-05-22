@@ -6,14 +6,20 @@ class FishLocationForm extends React.Component {
     super(props);
 
     this.state = {
-        id: this.props.fishId,
-      locationIds: "",
+      fishId: this.props.fishId,
+      locationId: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchAllLocations();
+  }
+
+  componentDidUpdate(prevProps) {
+    // if (prevProps.targetFish.locationIds.length !== this.props.targetFish.locationIds.length) {
+    //   this.props.fetchAllLocations();
+    // }
   }
 
   handleChange(field) {
@@ -24,11 +30,14 @@ class FishLocationForm extends React.Component {
     e.preventDefault();
     debugger
     this.props
-      .editFish(this.state)
-      .then(() => {
-          this.setState({ locationIds: "" });
-            window.location.reload(false);
-      });
+      .editFish({id: this.state.fishId, locationIds: this.props.targetFish.locationIds.concat(this.state.locationId)})
+      .then(() =>
+        this.props.editLocation({id: this.state.locationId, fishIds: this.props.locations[this.state.locationId].fishIds.concat(this.state.fishId)})
+          .then(() => {
+              this.setState({ locationId: "" });
+                window.location.reload(false);
+          })
+      );
   }
 
   render() {
@@ -46,8 +55,8 @@ class FishLocationForm extends React.Component {
         }
         <form action="" onSubmit={this.handleSubmit}>
           <select
-            value={this.state.locationIds ? this.state.locationIds : "default-select-value"}
-            onChange={this.handleChange("locationIds")}
+            value={this.state.locationId ? this.state.locationId : "default-select-value"}
+            onChange={this.handleChange("locationId")}
           >
             <option
               key={"default-select-location"}

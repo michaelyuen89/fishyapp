@@ -16,6 +16,7 @@ import PhotoExample from './photos/photo_example';
 import MapContainer from './map/map_container';
 import LocationPageContainer from './location/location_page_container';
 import LocationMainContainer from './location/location_main_container';
+import Footer from './footer/footer';
 
 
 const App = () => (
@@ -29,7 +30,7 @@ const App = () => (
             <ProtectedRoute exact path="/fishes" component={FishIndexContainer} />
             <ProtectedRoute exact path="/fishes/:fish_name" component={FishShowContainer} />
             <ProtectedRoute exact path="/new_photo" component={PhotoExample} />
-            <ProtectedRoute exact path="/profile" component={UserPageContainer} />
+            <ProtectedRoute exact path="/album" component={UserPageContainer} />
             {/* <Route path="/" component={MainPage} /> */}
             <Route exact path="/" component={MainPage} />
             {/* <Route path="/" component={MainPage} /> */}
@@ -37,6 +38,7 @@ const App = () => (
             <ProtectedRoute exact path ="/location/:content" component={LocationPageContainer} />
             <ProtectedRoute exact path="/map" component={MapContainer} />
         </Switch>
+        <Footer />
     </div>
 );
 export default App;
