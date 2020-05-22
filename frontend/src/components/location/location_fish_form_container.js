@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import LocationFishForm from './location_fish_form';
 import { editLocation, fetchAllLocations } from '../../actions/location_actions';
 import { editFish, fetchAllFishes } from '../../actions/fish_actions';
+// import {withRouter} from 'react-router-dom';
 
 const msp = (state, ownProps) => {
     // debugger;

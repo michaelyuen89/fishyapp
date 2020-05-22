@@ -7,18 +7,16 @@ class LocationFishForm extends React.Component {
         super(props);
 
         this.state = {
-            locationId: this.props.LocationId,
-            fishId: "",
+            locationId: this.props.locationId,
+            fishIds: "",
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
-        this.props.fetchAllFishes()
+        this.props.fetchAllFishes();
         this.props.fetchAllLocations();
-    }
-
-   
+    }   
 
     handleChange(field) {
         return (e) => this.setState({ [field]: e.target.value });
@@ -28,7 +26,7 @@ class LocationFishForm extends React.Component {
         e.preventDefault();
         debugger
         this.props
-            .editLocation({ id: this.props.locationId, fishIds: this.props.targetLocation.fishIds.concat(this.state.fishId) })
+            .editLocation({ id: this.state.locationId, fishIds: this.props.targetLocation.fishIds.concat(this.state.fishId) })
             .then(() =>
                 this.props.editFish({ id: this.state.fishId, LocationIds: this.props.fishes[this.state.fishId].locationIds.concat(this.state.locationId) })
                     .then(() => {

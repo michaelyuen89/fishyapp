@@ -17,12 +17,18 @@ class LocationMap extends React.Component {
         debugger;
         super(props);
 
+        this.state = {
+            locationId: this.props.locationId,
+            fishId: "",
+        }
+
         this.initMap = this.initMap.bind(this);
     }
 
     componentDidMount() {
+        this.renderMap();
         this.props.fetchAllLocations()
-            .then(() => this.renderMap());
+            // .then(() => this.renderMap());
     }
 
     renderMap() {
@@ -47,6 +53,8 @@ class LocationMap extends React.Component {
         let map = new window.google.maps.Map(document.getElementById('map'), options);
 
         var infoWindow = new window.google.maps.InfoWindow();
+
+        
 
         let markers = [];
 
@@ -113,22 +121,9 @@ class LocationMap extends React.Component {
 
 
     render() {
-        // debugger;
         return (
-            <>
-                {/* <GoogleMap /> */}
-                {/* <button onClick="showPanel()">{this.state} </button> */}
-
-                {/* <div id="info-pane"> */}
-                {/* <div id="info-photo"></div>
-                    <div id="info-name">{}</div>
-                    <div id="info-coord"></div> */}
-
-                {/* </div> */}
                 <div id="map"></div>
 
-
-            </>
         )
     }
 }

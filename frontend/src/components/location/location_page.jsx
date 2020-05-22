@@ -19,11 +19,16 @@ class LocationPage extends React.Component {
     }
 
     componentDidMount() {
+        debugger;
         this.props.fetchAllFishes();
-        this.props.fetchAllLocations();  
+        this.props.fetchAllLocations()
     }
 
     componentDidUpdate(prevProps) {
+        debugger;
+        if (prevProps.match.params.location_name !== this.props.match.params.location_name) {
+            this.props.fetchAllLocations()
+        }
 
     }
 
