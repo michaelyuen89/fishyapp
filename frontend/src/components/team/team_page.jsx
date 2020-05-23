@@ -15,7 +15,7 @@ class TeamPage extends React.Component {
               <div className="team-page-title">Meet our team!</div>
 
               <div className="team-member-container">
-                <div className="team-member-picture">
+                <div className="team-member-picture-left">
                   <img src={eli} alt="team-member-elijah-nam" />
                 </div>
 
@@ -28,7 +28,7 @@ class TeamPage extends React.Component {
                   <div className="team-member-overview-wrapper">
                     <div className="team-member-overview-container">
                       <div className="team-member-overview-title">
-                        About me!
+                        About me and my role!
                       </div>
                       <div className="team-member-overview">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -86,7 +86,7 @@ class TeamPage extends React.Component {
 
                     <div className="team-member-overview-container">
                       <div className="team-member-overview-title">
-                        About me!
+                        About me and my role!
                       </div>
                       <div className="team-member-overview">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -102,13 +102,13 @@ class TeamPage extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="team-member-picture">
+                <div className="team-member-picture-right">
                   <img src={emily} alt="team-member-emily-wu" />
                 </div>
               </div>
 
               <div className="team-member-container">
-                <div className="team-member-picture">
+                <div className="team-member-picture-left">
                   <img src={joe} alt="team-member-joe-xiao" />
                 </div>
                 <div className="team-member-info">
@@ -119,7 +119,7 @@ class TeamPage extends React.Component {
                   <div className="team-member-overview-wrapper">
                     <div className="team-member-overview-container">
                       <div className="team-member-overview-title">
-                        About me!
+                        About me and my role!
                       </div>
                       <div className="team-member-overview">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -183,7 +183,7 @@ class TeamPage extends React.Component {
 
                     <div className="team-member-overview-container">
                       <div className="team-member-overview-title">
-                        About me!
+                        About me and my role!
                       </div>
                       <div className="team-member-overview">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -199,7 +199,7 @@ class TeamPage extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="team-member-picture">
+                <div className="team-member-picture-right">
                   <img src={mike} alt="team-member-michael-yuen" />
                 </div>
               </div>

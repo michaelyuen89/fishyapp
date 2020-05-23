@@ -28,7 +28,8 @@
     width: 90%;
     margin: 0 auto;
     margin-bottom: 25px;
-    border: 1px solid blue;
+    border-radius: 30px;
+    border: 3px solid cornflowerblue;
 }
 
 .team-member-picture{
@@ -36,9 +37,16 @@
     height: 100%;
 }
 
-.team-member-picture > img{
+.team-member-picture-left > img{
     width: 100%;
     height: 100%;
+    border-radius: 27px 0px 0px 27px;
+}
+
+.team-member-picture-right > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 27px 27px 0px;
 }
 
 .team-member-info{
