@@ -37,6 +37,14 @@
     height: 100%;
 }
 
+.team-member-picture-right{
+    width: 28%;
+}
+
+.team-member-picture-left{
+    width: 28%;
+}
+
 .team-member-picture-left > img{
     width: 100%;
     height: 100%;
