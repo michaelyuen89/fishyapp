@@ -15,19 +15,22 @@ class LocationPage extends React.Component {
         this.mapLocation = { lat: this.props.location.lat, lng: this.props.location.lng }
         this.targetLocation = {}
 
+        this.state = {
+            
+        }
+
         this.fishes = [];
     }
 
     componentDidMount() {
-        debugger;
-        this.props.fetchAllFishes();
+        debugger;   
         this.props.fetchAllLocations()
     }
 
     componentDidUpdate(prevProps) {
         debugger;
-        if (prevProps.match.params.location_name !== this.props.match.params.location_name) {
-            this.props.fetchAllLocations()
+        if (prevProps.match.params.content !== this.props.match.params.content) {
+            this.props.fetchAllLocations();
         }
 
     }
@@ -88,6 +91,15 @@ class LocationPage extends React.Component {
             }
         })
 
+        if (Object.values(this.targetLocation).length === 0) {
+            return (
+                <>
+                    <div></div>
+                </>
+            );
+        } else {
+
+        
         return (
             <>  
                 <div id="loc-pg">
@@ -134,6 +146,7 @@ class LocationPage extends React.Component {
                 </div>
             </>
         )
+        }
     }
 }
 

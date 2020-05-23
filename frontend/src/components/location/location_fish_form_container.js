@@ -8,7 +8,7 @@ const msp = (state, ownProps) => {
     // debugger;
     return {
         fishes: state.entities.fishes,
-        // locations: state.entitites.locations,
+        locations: state.entities.locations,
         locationId: ownProps.locationId,
         targetLocation: ownProps.location
     }

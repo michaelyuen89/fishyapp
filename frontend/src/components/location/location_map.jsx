@@ -14,7 +14,7 @@ require('dotenv').config();
 
 class LocationMap extends React.Component {
     constructor(props) {
-        debugger;
+        
         super(props);
 
         this.state = {
@@ -26,6 +26,7 @@ class LocationMap extends React.Component {
     }
 
     componentDidMount() {
+        debugger;
         this.renderMap();
         this.props.fetchAllLocations()
             // .then(() => this.renderMap());
@@ -41,16 +42,13 @@ class LocationMap extends React.Component {
     }
 
     initMap() {
-        let newMarkers = [];
-        let bounds = new window.google.maps.LatLngBounds();
-
         let myLatLng = { lat: this.props.location.lat, lng: this.props.location.lng }
         const options = {
             zoom: 15,
             center: myLatLng,
             styles: mapStyles,
         }
-        let map = new window.google.maps.Map(document.getElementById('map'), options);
+        let map = new window.google.maps.Map(this.refs.map, options);
 
         var infoWindow = new window.google.maps.InfoWindow();
 
@@ -121,8 +119,9 @@ class LocationMap extends React.Component {
 
 
     render() {
+        debugger;
         return (
-                <div id="map"></div>
+                <div id="location-map" ref="map"></div>
 
         )
     }
