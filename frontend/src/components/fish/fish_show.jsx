@@ -51,7 +51,7 @@ class FishShow extends React.Component {
               fish.name.toLowerCase().split(" ").join("-") ===
               this.props.match.params.fish_name
             ) {
-              debugger
+              // debugger
               if(fish._id) this.props.fetchFishPhotos(fish._id);
             }
           });
