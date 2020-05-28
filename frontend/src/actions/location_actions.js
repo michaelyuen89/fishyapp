@@ -109,17 +109,23 @@ export const fetchLocation = (id) => (dispatch) =>
     // ).catch(err => (dispatch(receiveErrors(err.response.data))
   );
 
-export const createLocation = (location) => (dispatch) =>
+export const createLocation = (location) => (dispatch) => (
   LocationAPIUtil.createLocation(location)
-    .then((location) => dispatch(addLocation(location)))
-    .catch((err) => dispatch(receiveErrors(err.response.data)));
+    .then(location => dispatch(addLocation(location))
+    ).catch(err => { 
+      dispatch(receiveErrors(err.response.data))
+    })
+  );
 
-export const editLocation = (location) => (dispatch) =>
+export const editLocation = (location) => (dispatch) => (
   LocationAPIUtil.editLocation(location)
     .then((location) => dispatch(updateLocation(location)))
-    .catch((err) => dispatch(receiveErrors(err.response.data)));
+    .catch(err => {
+      debugger
+    })
+  );
 
 export const deleteLocation = (id) => (dispatch) =>
   LocationAPIUtil.deleteLocation(id)
-    .then((location) => dispatch(removeLocation(location)))
-    .catch((err) => dispatch(receiveErrors(err.response.data)));
+    .then(location => dispatch(removeLocation(location))
+  );

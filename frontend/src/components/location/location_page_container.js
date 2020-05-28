@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import LocationPage from './location_page';
 import {fetchAllFishes} from '../../actions/fish_actions';
 import {fetchAllLocations} from '../../actions/location_actions';
+import {withRouter} from 'react-router-dom';
 
 const msp = (state, ownParams) => {
     // debugger;
@@ -21,4 +22,4 @@ const mdp = dispatch => {
     }
 }
 
-export default connect(msp,mdp)(LocationPage);
+export default withRouter(connect(msp,mdp)(LocationPage));
