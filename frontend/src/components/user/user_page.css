@@ -145,7 +145,7 @@
 }
 
 .selected-user-index > .fish-photo img {
-    object-fit: fill;
+    object-fit: cover;
     height: 100%;
     width: 100%;
 
