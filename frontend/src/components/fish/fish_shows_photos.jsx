@@ -16,7 +16,7 @@ class FishShowsPhotos extends React.Component {
       debugger
     this.props.fetchAllFishes();
     this.props.fetchUserPhotos(this.props.currentUser.id);
-    this.props
+    if (this.targetFish._id) this.props
       .fetchFishPhotos(this.targetFish._id)
       .then(() => this.setState({ fishId: "" }));
   }
@@ -25,12 +25,6 @@ class FishShowsPhotos extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
-//   handleSubmit(e) {
-//     e.preventDefault();
-//     this.props
-//       .fetchFishPhotos(this.state.fishId)
-//       .then(() => this.setState({ fishId: "" }));
-//   }
 
   render() {
           this.props.fishes.forEach(fish => {

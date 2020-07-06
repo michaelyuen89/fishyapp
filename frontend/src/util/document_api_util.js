@@ -19,3 +19,7 @@ export const fetchPhotosByUser = id => {
 export const fetchFishPhotos = id => {
     return axios.get(`/api/document/fish/${id}`);
 };
+
+export const deleteFishPhoto = id => {
+    return axios.delete(`/api/document/${id}`);
+};

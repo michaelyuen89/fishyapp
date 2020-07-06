@@ -13,6 +13,7 @@ const fileUploadRoutes = require("./routes/api/fileUploadRoutes");
 const users = require("./routes/api/users");
 const locations = require("./routes/api/locations");
 const fishes = require("./routes/api/fishes");
+const userProfiles = require("./routes/api/userProfiles");
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -23,13 +24,6 @@ mongoose
 
 const path = require('path');
 
-if (process.env.NODE_ENV === 'production') {
-  console.log("we're in production");
-  app.use(express.static('frontend/build'));
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-  })
-}
 
 
 app.use(passport.initialize());
@@ -42,7 +36,18 @@ app.use("/api/users", users);
 app.use("/api/fishes", fishes);
 app.use("/api/locations", locations);
 app.use("/api/document", fileUploadRoutes);
+app.use("/api/user_profiles", userProfiles);
 
+if (process.env.NODE_ENV === 'production') {
+  console.log("we're in production");
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+  app.get('*', (req, res) => {
+    res.redirect('/');
+  })
+}
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

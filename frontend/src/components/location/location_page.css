@@ -28,6 +28,11 @@
     /* margin */
 }
 
+.fish-name-list {
+    font-size: 18px;
+    color: blue;
+}
+
 #loc-pg-img img {
     max-height: 300px;
     max-width: 600px;
@@ -48,6 +53,7 @@
 #loc-pg-fish-index span {
     text-decoration: underline;
     font-weight: bold;
+    font-size: 20px;
 }
 
 
