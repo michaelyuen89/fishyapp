@@ -1,7 +1,7 @@
 .team-page-container {
     /* height: 100vh; */
     width: 100vw;
-    display: flex;
+    /* display: flex; */
     /* flex-direction: column;
     justify-content: space-evenly;
     align-items: center; */
@@ -10,7 +10,7 @@
 }
 
 .team-page-section{
-    height: 100vh;
+    /* height: 100vh; */
     width: 100%;
 }
 
@@ -95,7 +95,12 @@
     width: 80%;
     height: 80%;
     margin: 0 auto;
-    text-align: center;
+    overflow: auto;
+}
+
+.overview-text{
+    margin: 3%;
+    height: 1px;
 }
 
 .team-member-overview-title{
