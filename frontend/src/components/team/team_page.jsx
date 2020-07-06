@@ -28,18 +28,20 @@ class TeamPage extends React.Component {
                   <div className="team-member-overview-wrapper">
                     <div className="team-member-overview-container">
                       <div className="team-member-overview-title">
-                        About me and my role!
+                        About me!
                       </div>
                       <div className="team-member-overview">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
+                        <div className="overview-text">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate velit esse cillum dolore eu
+                          fugiat nulla pariatur. Excepteur sint occaecat
+                          cupidatat non proident, sunt in culpa qui officia
+                          deserunt mollit anim id est laborum.
+                        </div>
                       </div>
                     </div>
 
@@ -85,19 +87,29 @@ class TeamPage extends React.Component {
                     </div>
 
                     <div className="team-member-overview-container">
-                      <div className="team-member-overview-title">
-                        About me and my role!
-                      </div>
+                      <div className="team-member-overview-title">About me!</div>
                       <div className="team-member-overview">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
+                        <div className="overview-text">
+                          I am a software engineer in New York, NY. Recently, I
+                          have developed projects using Ruby, Rails,
+                          React/Redux, Javascript, jQuery, Express, SQL,
+                          MongoDB, HTML, and CSS3, showcased on my
+                          Github/LinkedIn. Check them out!
+                          <br />
+                          <br />
+                          Prior to being a software engineer, I worked for three
+                          years as a management consultant at McKinsey &
+                          Company. Although I appreciated my time at McKinsey,
+                          I've always been passionate about programming -- from
+                          building websites in middle school to self-teaching
+                          Python in my downtime.
+                          <br />
+                          <br />
+                          In Jan 2020, I left McKinsey and enrolled in App
+                          Academy (a 16-week intensive full-stack web
+                          development bootcamp) to focus on being a full-fledged
+                          software engineer.
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -119,18 +131,33 @@ class TeamPage extends React.Component {
                   <div className="team-member-overview-wrapper">
                     <div className="team-member-overview-container">
                       <div className="team-member-overview-title">
-                        About me and my role!
+                        About me!
                       </div>
                       <div className="team-member-overview">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
+                        <div className="overview-text">
+                          Hello! My name is Joe and I am a Software Engineer
+                          based in NYC with experience in Ruby, Ruby on Rails,
+                          JavaScript, React/Redux, HTML, and CSS. 
+                          <br/>
+                          <br/>
+                          I was always
+                          fascinated by how technology was able to connect many
+                          different people together, which led me to getting a
+                          degree in Computer Science. I love programming,
+                          problem solving, and learning new technologies! Things
+                          I enjoy doing on my free time are fishing/spending
+                          time with my family, playing video games, and watching
+                          anime! If given the chance, my dream would be to
+                          travel the world to experience different cultures!
+                          <br/>
+                          <br/>
+                           I
+                          recently enrolled and completed App Academy, a 16 week
+                          intensive 1000+ hour full-stack web development
+                          bootcamp, to reinforce and build upon what I learned.
+                          Some of my featured projects are featued on my LinkedIn/Github, check them
+                          out!
+                        </div>
                       </div>
                     </div>
 
@@ -183,18 +210,20 @@ class TeamPage extends React.Component {
 
                     <div className="team-member-overview-container">
                       <div className="team-member-overview-title">
-                        About me and my role!
+                        About me!
                       </div>
                       <div className="team-member-overview">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit
-                        anim id est laborum.
+                        <div className="overview-text">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate velit esse cillum dolore eu
+                          fugiat nulla pariatur. Excepteur sint occaecat
+                          cupidatat non proident, sunt in culpa qui officia
+                          deserunt mollit anim id est laborum.
+                        </div>
                       </div>
                     </div>
                   </div>
