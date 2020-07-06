@@ -1,5 +1,6 @@
 import React from 'react';
 import splashImage from './splash_image.jpg';
+import { Link } from 'react-router-dom';
 import './main.css';
 
 class MainPage extends React.Component {

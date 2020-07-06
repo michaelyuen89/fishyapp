@@ -1,0 +1,112 @@
+.team-page-container {
+    /* height: 100vh; */
+    width: 100vw;
+    display: flex;
+    /* flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; */
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.team-page-section{
+    height: 100vh;
+    width: 100%;
+}
+
+.team-page-title{
+    text-align: center;
+    font-size: 100px;
+    color: cornflowerblue;
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+
+.team-member-container {
+    display: flex;
+    height: 50%;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    border-radius: 30px;
+    border: 3px solid cornflowerblue;
+}
+
+.team-member-picture{
+    width: 25%;
+    height: 100%;
+}
+
+.team-member-picture-right{
+    width: 28%;
+}
+
+.team-member-picture-left{
+    width: 28%;
+}
+
+.team-member-picture-left > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 27px 0px 0px 27px;
+}
+
+.team-member-picture-right > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 27px 27px 0px;
+}
+
+.team-member-info{
+    width: 85%;
+}
+
+.team-member-header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4px;
+    font-size: 38px;
+}
+
+.team-member-role{
+    margin-left: 10%;
+}
+
+.team-member-name{
+    text-align: center;
+}
+
+.team-member-op{
+    width: 15%;
+    display: flex;
+    font-size: 50px;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.team-member-overview-container{
+    width: 100%;
+    height: 100%;
+}
+
+.team-member-overview{
+    border: 1px solid lightblue;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-member-overview-title{
+    text-align: center;
+    margin: 5px 0px;
+    font-size: 25px;
+    color: mediumturquoise;
+}
+
+.team-member-overview-wrapper{
+    display: flex;
+    width: calc(100% - 1px);
+    height: calc(100% - 74px);
+}
